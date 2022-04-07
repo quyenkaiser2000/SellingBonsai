@@ -1,0 +1,25 @@
+@mixin font-prop($size: false, $colour: false, $weight: false,  $lh: false) {
+    font-family: $font-family-name;
+    @if $size { font-size: $size; }
+    @if $colour { color: $colour; }
+    @if $weight { font-weight: $weight; }
+    @if $lh { line-height: $lh; }
+}
+
+
+@mixin alula-button($background: #f2f2f2, $color: #363f4d, $font-size: 12px, $line-height: 12px, $font-weight: 500, $padding: 15px 30px ){
+    background: $background;
+    line-height: $line-height;
+    display: inline-block;
+    padding: $padding;
+    border-radius: 3px;
+    color: $color;
+    font-weight: $font-weight;
+    font-size: $font-size;
+  } 
+  
+  
+  @mixin alula-button-hover($background: $apple-green, $color: $white ) {
+      background-color: $background;
+      color: $color;
+  }

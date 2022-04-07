@@ -1,0 +1,110 @@
+
+/*=============================================
+=            feature icon            =
+=============================================*/
+
+.icon-feature-wrapper{
+    border-top: 1px solid #ededed; 
+    border-bottom: 1px solid #ededed;
+    padding: 30px 0; 
+
+    @media #{$tablet-device}{
+        margin-top: -15px;
+    }
+
+    @media #{$large-mobile}{
+        margin-top: -15px;
+    }
+
+    .col-6{
+        @media #{$extra-small-mobile}{
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+}
+
+.single-icon-feature{
+
+    @media #{$tablet-device}{
+        margin-top: 15px;
+    }
+    @media #{$large-mobile}{
+        margin-top: 15px;
+    }
+
+    &--product-details{
+        padding-left: 50px;
+    }
+    position: relative;
+    padding: 10px 0;
+    padding-left: 75px;
+    &__icon{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+    }
+
+    &__content{
+        p{
+            margin-bottom: 0;
+            &.feature-title{
+                @include font-prop(14px, $apple-green, 600, 18px);
+                font-family: $montserrat;
+            }
+            &.feature-text{
+                @include font-prop(14px, #666, 300, 20px);
+            }
+        }
+    }
+}
+
+/*=====  End of feature icon  ======*/
+
+
+
+/*=============================================
+=            light green page style            =
+=============================================*/
+
+.page-wrapper-light-green{
+    .single-icon-feature{
+       
+        &__content{
+            p{
+                margin-bottom: 0;
+                &.feature-title{
+                    @include font-prop(14px, $apple-green-light, 600, 18px);
+                }
+                
+            }
+        }
+    }
+}
+
+/*=====  End of light green page style  ======*/
+
+/*=============================================
+=            blue page style            =
+=============================================*/
+
+.page-wrapper-blue{
+    .single-icon-feature{
+       
+        &__content{
+            p{
+                margin-bottom: 0;
+                &.feature-title{
+                    @include font-prop(14px, $cerulean-blue, 600, 18px);
+                }
+                
+            }
+        }
+    }
+}
+
+/*=====  End of blue page style  ======*/
+
+
+

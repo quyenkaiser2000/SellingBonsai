@@ -1,0 +1,148 @@
+
+/*=============================================
+=            search overlay            =
+=============================================*/
+
+.search-overlay{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+    z-index: 999999; 
+    display: none;
+    top: 0;
+    left: 0;
+}
+
+
+.search-form{
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1110px;
+
+    @media #{$desktop-device}{
+        width: 700px;
+    }
+
+    @media #{$tablet-device}{
+        width: 650px;
+    }
+
+    @media #{$large-mobile}{
+        width: 500px;
+    }
+
+    @media #{$large-mobile}{
+        width: 400px;
+    }
+
+    @media #{$extra-small-mobile}{
+        width: 300px;
+    }
+
+    form{
+        input{
+            height: 70px;
+            font-size: 24px;
+            color: #fff;
+            width: 100%;
+            font-weight: 400;
+            background: transparent;
+            border: 0;
+            border-bottom: 1px solid #f72525;
+            border-radius: 0;
+            box-shadow: none !important;
+            padding: 0 50px 0 15px;
+            position: relative;
+
+            @media #{$desktop-device}{
+                font-size: 20px;
+            }
+        
+            @media #{$tablet-device}{
+                font-size: 20px;
+            }
+        
+            @media #{$large-mobile}{
+                font-size: 20px;
+            }
+        
+            @media #{$extra-small-mobile}{
+                font-size: 15px;
+                height: 50px;
+            }
+        }
+
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $white;
+        opacity: 1; /* Firefox */
+        }
+        
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $white;
+        }
+        
+        ::-ms-input-placeholder { /* Microsoft Edge */
+        color: $white;
+        }
+
+        button{
+            background: transparent;
+            border: 0;
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+            font-size: 34px;
+            color: #fff;
+            padding: 0;
+            box-shadow: none !important;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+
+            @media #{$desktop-device}{
+                font-size: 26px;
+            }
+        
+            @media #{$tablet-device}{
+                font-size: 26px;
+            }
+        
+            @media #{$large-mobile}{
+                font-size: 26px;
+            }
+        
+            @media #{$extra-small-mobile}{
+                font-size: 20px;
+            }
+
+            &:hover{
+                color: $pomegranate-red;
+            }
+        }
+    }
+}
+
+.close-search-overlay{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: $white;
+    font-size: 72px;
+
+    @media #{$extra-small-mobile}{
+        font-size: 50px;
+    }
+
+    &:hover{
+        color: $pomegranate-red;
+    }
+
+}
+
+/*=====  End of search overlay  ======*/
+

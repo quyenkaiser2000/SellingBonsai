@@ -1,0 +1,89 @@
+
+/*=============================================
+=            Button styles            =
+=============================================*/
+
+
+/*----------  default style  ----------*/
+
+.theme-button{
+    @include font-prop(16px, $white, 700, 50px);
+    text-align: center;
+    background-color: $apple-green;
+    padding: 0 30px;
+    transition: 0.3s;
+    border: none;
+
+    &:hover{
+        background-color: #333;
+        color: $white;
+    }
+    
+    /*----------  outline style  ----------*/
+    &--outline{
+        background-color: $white;
+        color: $apple-green;
+        border: 1px solid $apple-green;
+
+
+        &:hover{
+            background-color: $apple-green;
+            color: $white;
+        }
+    }
+
+}
+
+
+.product-cart-button{
+    line-height: 41px;
+    padding: 0 70px;
+    border-radius: 5px;
+
+
+    @media #{$extra-small-mobile}{
+        padding: 0 40px;   
+    }
+
+}
+
+.compare-button, .wishlist-button{
+    a{
+        @include font-prop(13px, #666, 300, 30px);
+
+        i{
+            margin-right: 5px;
+        }
+
+        &:hover{
+            color: $apple-green;
+        }
+    }
+}
+
+
+.contact-button{
+    line-height: 40px;
+    border-radius: 5px;
+}
+
+
+.list-cart-button{
+    line-height: 38px;
+    margin-top: 34px;
+    background: #f0f0f0;
+    color: #333;
+    padding: 0 30px;
+    border-radius: 5px;
+    width: 100%;
+
+    &:hover{
+        background-color: $apple-green;
+        color: $white;
+    }
+}
+
+
+
+/*=====  End of Button styles  ======*/
+

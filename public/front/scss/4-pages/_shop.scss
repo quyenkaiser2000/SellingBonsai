@@ -1,0 +1,111 @@
+
+/*=============================================
+=            shop            =
+=============================================*/
+
+
+/*----------  shop header  ----------*/
+
+.shop-header{
+    border: 1px solid #ededed;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media #{$large-mobile}{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__left{
+        &__message{
+            @include font-prop(14px, #666, 300, 46px);
+            float: left;
+
+            @media #{$extra-small-mobile}{
+                padding-left: 10px;
+            }
+        }
+    }
+
+    &__right{
+        padding-left: 10px;
+        .single-select-block{
+            .select-title{
+                margin-right: 10px;
+
+                @include font-prop(14px, #666, 400, 30px);
+            }
+            select{
+                border: none;
+                @include font-prop(14px, #666, 400, 30px);
+                padding-left: 10px;
+                
+            }
+        }
+    }
+}
+
+.grid-icons{
+    float: left;
+    button{
+        background: none;
+        border: none;
+        height: 46px;
+        width: 40px;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 0;
+        float: left;
+
+        @media #{$large-mobile}{
+            height: 40px;
+        }
+
+        &.three-column{
+            background-image: url('../img/icons/grid.png');
+            &:hover, &.active{
+                background-image: url('../img/icons/grid-hover.png');
+            }
+        }
+
+        &.four-column{
+            background-image: url('../img/icons/grid-4.png');
+            &:hover, &.active{
+                background-image: url('../img/icons/grid-4-hover.png');
+            }
+        }
+
+        &.list-view{
+            background-image: url('../img/icons/list.png');
+            &:hover, &.active{
+                background-image: url('../img/icons/list-hover.png');
+            }
+        }
+    }
+    
+}
+
+.shop-product-wrap{
+    &.grid {
+    
+        .list-view-product {
+            display: none;
+        }
+    }
+    &.list {
+        [class*="col"], [class*="col-"] {
+            flex: 1 0 100%;
+            width: 100%;
+            max-width: 100%;
+        }
+        .grid-view-product {
+            display: none;
+        }
+    }
+}
+
+
+/*=====  End of shop  ======*/
+

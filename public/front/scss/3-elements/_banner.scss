@@ -1,0 +1,559 @@
+
+/*=============================================
+=            banner            =
+=============================================*/
+
+
+/*----------  single split banner  ----------*/
+
+.single-split-banner{
+    &__image{
+        position: relative;
+
+        a{
+            display: block;
+            width: 100%; 
+
+            img{
+                transition: 0.6s;
+                width: 100%;
+            }
+            &:hover{
+                img{
+                    opacity: 0.7;
+                }
+            }
+        }
+        
+        &__content{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding-left: 40px;
+            p{
+                margin-bottom: 0;
+
+                &.split-banner-title{
+                    &--light{
+                        @include font-prop(20px, #666, 300, 20px);
+                        margin-bottom: 5px;
+
+                        @media #{$tablet-device}{
+                            font-size: 16px;
+                            line-height: 16px;
+                        }
+
+                        @media #{$extra-small-mobile}{
+                            font-size: 16px;
+                            line-height: 16px;
+                        }
+                    }
+                    &--bold{
+                        @include font-prop(28px, #333, 600, 28px);
+                        margin-bottom: 15px;
+
+                        @media #{$tablet-device}{
+                            font-size: 22px;
+                            line-height: 22px;
+                        }
+
+                        @media #{$extra-small-mobile}{
+                            font-size: 22px;
+                            line-height: 22px;
+                        }
+
+                        &--small{
+                            font-size: 22px;
+                            line-height: 22px;
+
+                            @media #{$tablet-device}{
+                                font-size: 19px;
+                                line-height: 19px;
+                            }
+    
+                            @media #{$extra-small-mobile}{
+                                font-size: 19px;
+                                line-height: 19px;
+                            }
+                        }
+                    }
+                    &--price{
+                        @include font-prop(18px, #666, 400, 18px);
+
+                        @media #{$tablet-device}{
+                            font-size: 15px;
+                            line-height: 15px;
+                        }
+
+                        @media #{$extra-small-mobile}{
+                            font-size: 15px;
+                            line-height: 15px;
+                        }
+                        
+
+                        .amount{
+                            margin-top: 5px;
+                            display: block;
+                            @include font-prop(24px, $apple-green, 600, 24px);
+
+                            @media #{$tablet-device}{
+                                font-size: 18px;
+                                line-height: 18px;
+                            }
+
+                            @media #{$extra-small-mobile}{
+                                font-size: 18px;
+                                line-height: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*----------  full banner  ----------*/
+
+.full-banner{
+    &__content{
+        h5{
+            @include font-prop(16px, $apple-green, 400, 20px);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        h4{
+            @include font-prop(35px, #333, 400, 35px);
+            @media #{$desktop-device}{
+                font-size: 30px;
+                line-height: 30px;
+            }
+            @media #{$tablet-device}{
+                font-size: 30px;
+                line-height: 30px;
+            }
+            @media #{$large-mobile}{
+                font-size: 30px;
+                line-height: 30px;
+            }
+            @media #{$extra-small-mobile}{
+                font-size: 22px;
+                line-height: 22px;
+            }
+        }
+
+        h3{
+            @include font-prop(60px, #333, 500, 60px);
+
+            @media #{$desktop-device}{
+                font-size: 50px;
+                line-height: 50px;
+            }
+
+            @media #{$tablet-device}{
+                font-size: 45px;
+                line-height: 45px;
+            }
+
+            @media #{$large-mobile}{
+                font-size: 45px;
+                line-height: 45px;
+            }
+
+            @media #{$extra-small-mobile}{
+                font-size: 35px;
+                line-height: 35px;
+            }
+        }
+
+        p{
+            @include font-prop(16px, #666, 300, 20px);
+            margin-bottom: 40px;
+        }
+
+        .banner-button{
+            border-radius: 5px;
+            padding: 0 20px;
+
+            @media #{$extra-small-mobile}{
+                font-size: 12px;
+                line-height: 40px;
+                padding: 0 15px;
+            }
+        }
+    }
+
+    &__image{
+        a{
+            display: block;
+            width: 100%;
+            img{
+                transition: 0.6s;
+                width: 100%;
+            }
+
+            &:hover{
+                img{
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
+
+
+/*----------  full banner two  ----------*/
+
+.full-banner-two{
+
+    &__content{
+        background-color: $apple-green-light;
+        padding: 0 45px;
+        padding-right: 65px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @media #{$tablet-device}{
+            padding-top: 40px;
+            padding-bottom: 40px;
+            padding-right: 40px;
+        }
+
+        @media #{$large-mobile}{
+            padding-top: 40px;
+            padding-bottom: 40px;
+            padding-right: 40px;
+        }
+
+        &__wrapper{
+            h3{
+                font-size: 52px;
+                line-height: 52px;
+                color: $white;
+                font-weight: 500;
+                letter-spacing: -1px;
+                margin-bottom: 5px;
+
+                @media #{$desktop-device}{
+                    font-size: 40px;
+                    line-height: 40px;
+                }
+
+                @media #{$extra-small-mobile}{
+                    font-size: 30px;
+                    line-height: 30px;
+                }
+            }
+    
+            h4{
+                font-size: 52px;
+                line-height: 52px;
+                color: $white;
+                font-weight: 400;
+                letter-spacing: -1px;
+                margin-bottom: 20px;
+
+                @media #{$desktop-device}{
+                    font-size: 40px;
+                    line-height: 40px;
+                }
+
+                @media #{$extra-small-mobile}{
+                    font-size: 30px;
+                    line-height: 30px;
+                }
+    
+            }
+    
+            p{
+                font-size: 16px;
+                line-height: 24px;
+                color: $white;
+                font-weight: 400;
+                margin-bottom: 30px;
+            }
+    
+            .banner-two-button{
+                background-color: $white;
+                color: $mine-shaft-black;
+                border-radius: 5px;
+    
+                &:hover{
+                    background-color: $candle-light-yellow;
+    
+                }
+
+                @media #{$extra-small-mobile}{
+                    font-size: 12px;
+                    line-height: 40px;
+                    padding: 0 15px;
+                }
+            }
+        }
+    }
+
+    &__image{
+        a{
+            display: block;
+            width: 100%;
+            img{
+                width: 100%;
+                transition: 0.6s;
+            }
+
+            &:hover{
+                img{
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
+
+
+/*----------  full banner background  ----------*/
+
+.full-banner-bg-wrapper{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding: 80px 0;
+    padding-left: 70px;
+    padding-top: 70px;
+
+    @media #{$desktop-device}{
+        background-position-x: 20%;
+    }
+
+    @media #{$tablet-device}{
+        background-position-x: 15%;
+    }
+
+    @media #{$large-mobile}{
+        background-position-x: 15%;
+        padding-left: 50px;
+    }
+
+    @media #{$extra-small-mobile}{
+        background-position-x: 30%;
+        padding-left: 30px;
+    }
+
+    &__content{
+        max-width: 40%;
+        @media #{$desktop-device}{
+            max-width: 50%;
+        }
+        @media #{$tablet-device}{
+            max-width: 60%;
+        }
+        @media #{$large-mobile}{
+            max-width: 80%;
+        }
+
+        @media #{$extra-small-mobile}{
+            max-width: 100%;
+        }
+    
+        h3{
+            @include font-prop(70px, #333, 500, 70px);
+            letter-spacing: -1px;
+
+            @media #{$desktop-device}{
+                font-size: 60px;
+                line-height: 60px;
+            }
+
+            @media #{$tablet-device}{
+                font-size: 55px;
+                line-height: 55px;
+            }
+
+            @media #{$large-mobile}{
+                font-size: 55px;
+                line-height: 55px;
+            }
+
+            @media #{$small-mobile}{
+                font-size: 45px;
+                line-height: 45px;
+            }
+
+            @media #{$extra-small-mobile}{
+                font-size: 35px;
+                line-height: 35px;
+            }
+
+        }
+
+        h4{
+            @include font-prop(40px, #333, 400, 40px);
+            margin-bottom: 30px;
+
+            @media #{$small-mobile}{
+                font-size: 30px;
+                line-height: 30px;
+            }
+
+            @media #{$extra-small-mobile}{
+                font-size: 25px;
+                line-height: 25px;
+            }
+        }
+
+        p{
+            @include font-prop(20px, #666, 300, 24px);
+            margin-bottom: 35px;
+
+            @media #{$extra-small-mobile}{
+                font-size: 18px;
+                line-height: 22px;
+            }
+        }
+
+        .banner-bg-button{
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+
+            &:hover{
+                background-color: $pomegranate-red;
+            }
+
+            @media #{$extra-small-mobile}{
+                font-size: 12px;
+                line-height: 40px;
+                padding: 0 15px;
+            }
+        }
+    }
+}
+
+
+
+/*----------  slider banner  ----------*/
+
+.slider-banner{
+    a{
+        display: block;
+        width: 100%;
+
+        img{
+            width: 100%;
+            transition: 0.6s;
+        }
+
+        &:hover{
+            img{
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+
+.page-sidebar-banner{
+    a{
+        display: block;
+        width: 100%;
+        img{
+            transition: 0.3s;
+        }
+
+        &:hover{
+            img{
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+/*=====  End of banner  ======*/
+
+
+
+        
+/*=============================================
+=            light green page style            =
+=============================================*/
+
+.page-wrapper-light-green{
+    .single-split-banner{
+        &__image{
+            &__content{
+                p{
+                    &.split-banner-title{
+                        &--price{
+                            .amount{
+                                color: $apple-green-light;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+/*=====  End of light green page style  ======*/
+
+        
+/*=============================================
+=            red page style            =
+=============================================*/
+
+.page-wrapper-red{
+    .single-split-banner{
+        &__image{
+            &__content{
+                p{
+                    &.split-banner-title{
+                        &--price{
+                            .amount{
+                                color: $mine-shaft-black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+/*=====  End of red page style  ======*/
+        
+/*=============================================
+=            blue page style            =
+=============================================*/
+
+.page-wrapper-blue{
+    .single-split-banner{
+        &__image{
+            &__content{
+                p{
+                    &.split-banner-title{
+                        &--price{
+                            .amount{
+                                color: $cerulean-blue;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+/*=====  End of red page style  ======*/

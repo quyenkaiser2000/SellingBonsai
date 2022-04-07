@@ -1,0 +1,26 @@
+
+/*=============================================
+=            progressbar            =
+=============================================*/
+
+.product-availability{
+    &__text{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+
+        @include font-prop(14px, #666, 300, 20px);
+    }
+
+    .progress{
+        height: 10px;
+        .progress-bar{
+            &.bg-warning{
+                background-color: $candle-light-yellow !important;
+            }
+        }
+    }
+}
+
+/*=====  End of progressbar  ======*/
+

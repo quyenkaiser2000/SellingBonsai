@@ -1,0 +1,78 @@
+
+/*=============================================
+=            scroll top            =
+=============================================*/
+
+.scroll-top {
+    background: $apple-green;
+    width: 42px;
+    height: 42px; 
+    line-height: 42px; 
+    display: none;
+    text-align: center;
+    color: $white;
+    font-family: 'Ionicons';
+    position: fixed;
+    right: 30px;
+    bottom: 80px;
+    z-index: 999;
+    border-radius: 50%;
+    border: none;
+
+    &:after {
+      content: "\f3d8"; 
+      display: inline;
+      font-size: 14px;
+    }
+
+  }
+
+
+  
+  /*=============================================
+  =            page wrapper light green style            =
+  =============================================*/
+  
+  .page-wrapper-light-green{
+
+    .scroll-top {
+      background: $apple-green-light;
+    }
+    
+  }
+  
+  /*=====  End of page wrapper light green style  ======*/
+  
+  /*=============================================
+  =            page wrapper blue style            =
+  =============================================*/
+  
+  .page-wrapper-blue{
+
+    .scroll-top {
+      background: $cerulean-blue;
+    }
+
+  }
+  
+  /*=====  End of page wrapper light green style  ======*/
+  
+  /*=============================================
+  =            page wrapper red style            =
+  =============================================*/
+  
+  .page-wrapper-red{
+
+    .scroll-top {
+      background: $pomegranate-red;
+    }
+
+  }
+  
+  /*=====  End of page wrapper light red style  ======*/
+  
+  
+
+
+/*=====  End of scroll top  ======*/
+

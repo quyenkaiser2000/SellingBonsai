@@ -1,0 +1,34 @@
+
+/*=============================================
+=            social link            =
+=============================================*/
+
+
+/*----------  social icon small  ----------*/
+
+.follow-text{
+    font-size: 14px;
+    line-height: 24px;
+    color: $white; 
+    font-weight: 300;
+}
+
+.social-link-small{
+    display: inline-block;
+    li{
+        display: inline-block;
+        margin-right: 20px;  
+        &:last-child{
+            margin-right: 0;
+        }
+        a{
+            color: $white;
+            &:hover{
+                color: $candle-light-yellow;
+            }
+        }
+    }
+}
+
+/*=====  End of social link  ======*/
+

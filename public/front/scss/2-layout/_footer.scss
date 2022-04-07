@@ -1,0 +1,252 @@
+
+/*=============================================
+=            footer            =
+=============================================*/
+
+.footer-text-block{
+    &__title{
+        @include font-prop(16px, #333, 600, 24px);
+        margin-bottom: 0;
+    }
+
+    &__content{
+        @include font-prop(14px, #666, 300, 24px);
+    }
+}
+
+.footer-widget-title{
+    margin-bottom: 25px;
+    a{
+        @include font-prop(17px, #333, 600, 24px);
+        &:hover{
+            text-decoration: underline;
+
+        }
+    }
+}
+
+.montserrat-footer-widget-title{
+    @include font-prop(17px, #333, 600, 24px);
+    font-family: $montserrat;
+    margin-bottom: 15px;
+}
+
+.footer-navigation{
+    nav{
+        ul{
+            display: grid;
+            grid-template-columns: auto auto;
+
+            li{
+                display: list-item;
+
+                a{
+                    display: block;
+                    line-height: 24px;
+                    color: #666;
+                    padding: 3px 0;
+                    position: relative;
+                    font-weight: 300;
+                    font-size: 14px;
+
+                    @media #{$tablet-device}{
+                        line-height: 20px;
+                    }
+
+                    @media #{$large-mobile}{
+                        line-height: 20px;
+                    }
+
+                    &:hover{
+                        color: $apple-green;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.footer-social-icon-block{
+    ul{
+        li{
+            display: inline-block;
+            margin-right: 7px;
+            margin-bottom: 0;
+            margin-top: 10px;
+
+            &:last-child{
+                margin-right: 0;
+            }
+            a{
+                display: inline-block;
+                color: #fff;
+                width: 34px;
+                height: 34px;
+                line-height: 34px;
+                border-radius: 100%;
+                font-size: 0;
+                border: 0;
+                text-align: center;
+
+                &:hover{
+                    opacity: 0.7;
+                }
+
+                i{
+                    font-size: 16px;
+                }
+
+                &.facebook-icon{
+                    background: $facebook;
+                }
+
+                &.twitter-icon{
+                    background: $twitter;
+                }
+
+                &.googleplus-icon{
+                    background: $google-plus;
+                }
+
+                &.instagram-icon{
+                    background: $instagram;
+                }
+
+                &.youtube-icon{
+                    background: $youtube;
+                }
+            }
+        }
+    }
+}
+
+.copyright-text-area{
+    border-top: 1px solid #ededed;
+    padding: 20px 0;
+}
+
+.copyright-text{
+    p{
+        text-transform: capitalize;
+        font-weight: 400;
+        margin: 0;
+        color: #999;
+
+        a{
+            color: #333;
+
+            &:hover{
+                color: $apple-green;
+            }
+        }
+    }
+}
+
+/*=====  End of footer  ======*/
+
+
+/*=============================================
+=            light green page style            =
+=============================================*/
+
+.page-wrapper-light-green{
+    .footer-navigation{
+        nav{
+            ul{
+                li{
+
+                    a{
+                        &:hover{
+                            color: $apple-green-light;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+
+    .copyright-text{
+        p{
+            a{
+                &:hover{
+                    color: $apple-green-light;
+                }
+            }
+        }
+    }
+}
+
+/*=====  End of light green page style  ======*/
+
+
+/*=============================================
+=            blue page style            =
+=============================================*/
+
+.page-wrapper-blue{
+    .footer-navigation{
+        nav{
+            ul{
+                li{
+
+                    a{
+                        &:hover{
+                            color: $cerulean-blue;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+
+    .copyright-text{
+        p{
+            a{
+                &:hover{
+                    color: $cerulean-blue;
+                }
+            }
+        }
+    }
+}
+
+/*=====  End of blue page style  ======*/
+
+/*=============================================
+=            red page style            =
+=============================================*/
+
+.page-wrapper-red{
+    .footer-navigation{
+        nav{
+            ul{
+                li{
+
+                    a{
+                        &:hover{
+                            color: $pomegranate-red;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+
+    .copyright-text{
+        p{
+            a{
+                &:hover{
+                    color: $pomegranate-red;
+                }
+            }
+        }
+    }
+}
+
+/*=====  End of blue page style  ======*/
+
+

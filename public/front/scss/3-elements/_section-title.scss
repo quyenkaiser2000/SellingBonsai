@@ -1,0 +1,91 @@
+
+/*=============================================
+=            section title            =
+=============================================*/
+
+.section-title{
+
+    
+
+    h2{
+        position: relative;
+        text-transform: capitalize;
+        margin: 0;
+        padding-bottom: 10px;
+        @include font-prop(24px, #333, 600, 27px);
+        font-family: $montserrat;
+
+        &:after{
+            content: "";
+            background: $apple-green;
+            width: 66px;
+            height: 2px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+    }
+
+    &--medium{
+        h2{
+            @include font-prop(20px, #333, 600, 26px);
+        }
+    }
+}
+
+/*=====  End of section title  ======*/
+
+
+
+
+/*=============================================
+=            Light green page style            =
+=============================================*/
+
+.page-wrapper-light-green{
+    .section-title{
+        h2{
+            &:after{
+                background: $apple-green-light;
+            }
+        }
+    }
+}
+
+/*=====  End of Light green page style  ======*/
+
+
+/*=============================================
+=            red page style            =
+=============================================*/
+
+.page-wrapper-red{
+    .section-title{
+        h2{
+            &:after{
+                background: $pomegranate-red;
+            }
+        }
+    }
+}
+
+/*=====  End of red page style  ======*/
+
+
+/*=============================================
+=            blue page style            =
+=============================================*/
+
+.page-wrapper-blue{
+    .section-title{
+        h2{
+            &:after{
+                background: $cerulean-blue;
+            }
+        }
+    }
+}
+
+
+/*=====  End of blue page style  ======*/
+

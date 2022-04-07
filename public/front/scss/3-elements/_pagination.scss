@@ -1,0 +1,68 @@
+
+/*=============================================
+=            pagination            =
+=============================================*/
+
+.pagination-section{
+    border: 1px solid #ededed;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media #{$large-mobile}{
+        flex-direction: column;
+    }
+    .pagination{
+        display: inline-block;
+        padding: 10px 0;
+        li{
+            display: inline-block;
+
+            a{
+                color: #333;
+                font-size: 14px;
+                padding: 0;
+                font-weight: 400;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                background: #fff;
+                border: 0;
+                border-radius: 4px;
+                transition: 0.3s;
+
+                &:hover{
+                    background: $apple-green;
+                    color: #fff;
+
+                }
+            }
+
+            &.active{
+                
+                a{
+                    color: #fff;
+                    font-size: 14px;
+                    padding: 0;
+                    font-weight: 400;
+                    width: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    text-align: center;
+                    background: $apple-green;
+                    border: 0;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+
+    .pagination-text{
+        @include font-prop(14px, #666, 300, 38px);
+    }
+}
+
+/*=====  End of pagination  ======*/
+

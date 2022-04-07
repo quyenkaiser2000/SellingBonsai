@@ -1,0 +1,41 @@
+
+/*=============================================
+=            breadcrumb            =
+=============================================*/
+
+.breadcrumb-content{
+    ul{
+        li{
+            display: inline-block;
+            margin-right: 20px;
+            @include font-prop(13px, #333, 400, 25px);
+
+            &.has-child{
+                position: relative;
+
+                &:before{
+                    content: "\f3d3";
+                    padding: 0;
+                    color: #666;
+                    display: inline-block;
+                    vertical-align: top;
+                    font-family: "Ionicons";
+                    font-size: 12px;
+                    position: absolute;
+                    right: -15px;
+                }
+            }
+
+            &:last-child{
+                margin-right: 0;
+            }
+
+            a{
+                @include font-prop(13px, #666, 400, 25px);
+            }
+        }
+    }
+}
+
+/*=====  End of breadcrumb  ======*/
+

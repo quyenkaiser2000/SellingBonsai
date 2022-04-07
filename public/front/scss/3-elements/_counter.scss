@@ -1,0 +1,82 @@
+
+/*=============================================
+=            counter            =
+=============================================*/
+
+.counter-deal{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-80%);
+    right: 127px;
+    display: inline-block;
+    background-color: $apple-green;
+    padding: 0 20px;
+    @include font-prop(17px, $white, 700, 36px);
+    border-radius: 5px;
+
+    @media #{$tablet-device}{
+        transform: translateY(-160%);
+    }
+
+    @media #{$large-mobile}{
+        position: static;
+        transform: none;
+        margin-bottom: 30px;
+    }
+
+    .deal-countdown{
+        display: inline-block;
+        margin-left: 15px;
+
+        .single-countdown{
+            display: inline-block;
+
+            &__text{
+                margin: 0 5px;
+            }
+        }
+    }
+}
+
+/*=====  End of counter  ======*/
+
+
+
+/*=============================================
+=            light green page style            =
+=============================================*/
+
+.page-wrapper-light-green{
+    .counter-deal{
+        background-color: $apple-green-light;
+    }
+}
+
+/*=====  End of blue page style  ======*/
+
+
+/*=============================================
+=            blue page style            =
+=============================================*/
+
+.page-wrapper-blue{
+    .counter-deal{
+        background-color: $cerulean-blue;
+    }
+}
+
+/*=====  End of blue page style  ======*/
+
+
+/*=============================================
+=            red page style            =
+=============================================*/
+
+.page-wrapper-red{
+    .counter-deal{
+        background-color: $pomegranate-red;
+    }
+}
+
+/*=====  End of blue page style  ======*/
+
