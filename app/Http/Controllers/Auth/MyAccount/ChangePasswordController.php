@@ -16,20 +16,23 @@ use Illuminate\Validation\Rule;
 class ChangePasswordController extends Controller
 {
     //
-    public function show($id){
-            $user = User::findOrFail($id);
+    public function show(){
+            $user_id = Auth::user()->id;
+            $user = User::findOrFail($user_id);
 
             return view('auth.myaccount.myaccount_changepassword',compact('user'));
     
     }
-    public function changepas(Request $request,$id){
+    public function changepas(Request $request){
        
 
         $erroremail  = session('erroremail');
         $errorpas  = session('errorpas');
         $errorconfirmpas  = session('errorconfirmpas');
         $success = session('success');
-            $changepas = User::findOrFail($id);
+        $user_id = Auth::user()->id;
+
+            $changepas = User::findOrFail($user_id);
             if($request->email != $changepas->email )
             {
                 return redirect()->back()->with('erroremail', 'Email không chính xác');

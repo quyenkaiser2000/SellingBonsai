@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Product;
 class OrderController extends Controller
 {
     /**
@@ -18,7 +19,7 @@ class OrderController extends Controller
         //
         $orders = Order::all();
         
-        return view('dashboard.order',compact('orders'));
+        return view('dashboard.crudorder.order',compact('orders'));
     }
 
     /**
@@ -54,9 +55,16 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         $orderdetails = OrderDetail::all()->where('order_id',$id);
         
-        return view('dashboard.crudorder.detailorder',compact('order','orderdetails'));
-    }
+        if($order->status == 'Pending' ){
+            return view('dashboard.crudorder.detailorderpending',compact('order','orderdetails'));
 
+        }
+        else{
+            return view('dashboard.crudorder.detailorder',compact('order','orderdetails'));
+
+        }
+    }
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -90,4 +98,49 @@ class OrderController extends Controller
     {
         //
     }
+    public function pay($id){
+        $order = Order::findOrFail($id);
+        
+        $orderdetails = OrderDetail::select('order_id','product_id','qty')->where('order_id', $id)->get();
+        foreach ($orderdetails as $orderdetail){
+            $product = Product::find($orderdetail->product_id);
+            $product->qty = $product->qty - $orderdetail->qty;
+            $product->save();
+        }
+        $order->status = 'delivered';
+        $order->save();
+        return redirect()->back();
+    }
+    public function orderpending(){
+        $orders = Order::all()->where('status','Pending');
+        return view('dashboard.crudorder.orderpending',compact('orders'));
+    }
+    public function showpending($id)
+    {
+        //
+        $order = Order::findOrFail($id);
+        $orderdetails = OrderDetail::all()->where('order_id',$id);
+        
+        return view('dashboard.crudorder.detailorderpending',compact('order','orderdetails'));
+    }
+    public function delete($id){
+        $order = Order::findOrFail($id);
+        $orderdetails = OrderDetail::all()->where('order_id',$id);
+        foreach($orderdetails as $orderdetail)
+        {
+            $orderdetail->delete();
+        }
+        $order->delete();
+
+        return redirect('/admin/dashboard/order/pending');
+    }
+    public function browse($id){
+        $order = Order::findOrFail($id);
+        $order->status = 'Approved';
+        $order->save();
+        return redirect('/admin/dashboard/order/pending');
+    }
+
+    
 }
+

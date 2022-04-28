@@ -53,6 +53,23 @@
             <!-- ============================================================== -->
         </div>
   <!-- javascript -->
- 
+  <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Tổng', 'Doanh Thu'],
+          <?php echo $data; ?>
+        ]);
+
+        var options = {
+          title: 'Tổng Doanh Thu Từng Tháng',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_values'));
+        chart.draw(data, options);
+      }
+    </script>
    
 @endsection

@@ -4,11 +4,7 @@ namespace App\Http\Controllers\Auth\MyAccount;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Product;
-use App\Models\Brand;
 use App\Models\User;
-use App\Models\ProductCategory;
-use App\Models\ProductImage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
@@ -19,15 +15,18 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Validator;
 class UpdateController extends Controller
 {
-    public function show($id){
-        $user = User::findOrFail($id);
+    public function show(){
+        $user_id = Auth::user()->id;
+        $user = User::findOrFail($user_id);
         return view('auth.myaccount.myaccount_update',compact('user'));
     }
 
     
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {   
-        $upUser = User::findOrFail($id);
+        $user_id = Auth::user()->id;
+
+        $upUser = User::findOrFail($user_id);
         
       
       if($request->name != null && $request->email != null && $request->address != null && $request->phone != null )

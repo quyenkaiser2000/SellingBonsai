@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\DiscountCode;
 use Illuminate\Support\Facades\Mail;
 class CheckOutController extends Controller
 {
@@ -16,21 +17,95 @@ class CheckOutController extends Controller
     public function index(){
         
         $carts = Cart::content();
-
-        foreach($carts as $cart){
-            break;
-        }
-        
-        
+        $cart = $carts->first();
         $total = Cart::totalFloat();
         $subtotal = Cart::subtotalFloat();
-        $discountcode = (($cart->options->discountcode / 100) * $total);
-        $total = $total - $discountcode;
-        return view('front.checkout',compact('carts','total','subtotal','discountcode'));
+        if($cart != null){
+            $discount = DiscountCode::all()->where('code', $cart->options->discountcode)->first();
+           
+            if($discount != null){
+            
+                $discountcode = (($discount->discount / 100) * $total);
+                $total = $total - $discountcode;
+                return view('front.checkout',compact('carts','total','subtotal','discountcode'));
+    
+            }
+            else{
+                $discountcode = 0;
+                return view('front.checkout',compact('carts','total','subtotal','discountcode'));
+    
+            }
+        }
+        else{
+            $discountcode = 0;
+            return view('front.checkout',compact('carts','total','subtotal','discountcode'));
+
+        }
+        
+       
+        
+
     }
     public function addOder(Request $request){
-        //dd($request->all());
-        $order  = Order::create($request->all());
+        $carts_discount = Cart::content();
+        $cart_discount = $carts_discount->first();
+        $discount_id = DiscountCode::all()->where('code',$cart_discount->options->discountcode)->first();
+        if( $cart_discount->options->discountcode != null)
+        {
+            if($request->payment_method == 'pay_later'){
+            $order = new Order([
+                'name' =>$request->name,
+                'address' =>$request->address,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'payment_method' => $request->payment_method,
+                'status'=> 'Pending',
+                'discount_code_id' =>$discount_id->id ,
+               
+            ]);
+            $order->save();
+            }
+            else{
+                $order = new Order([
+                    'name' =>$request->name,
+                    'address' =>$request->address,
+                    'email' => $request->email,
+                    'phone' => $request->phone,
+                    'payment_method' => $request->payment_method,
+                    'status'=> 'Approved',
+                    'discount_code_id' =>$discount_id->id ,
+                ]);
+                $order->save();
+            }
+        }
+        else{
+            if($request->payment_method == 'pay_later'){
+                $order = new Order([
+                    'name' =>$request->name,
+                    'address' =>$request->address,
+                    'email' => $request->email,
+                    'phone' => $request->phone,
+                    'payment_method' => $request->payment_method,
+                    'status'=> 'Pending',
+                    'discount_code_id' =>null,
+                   
+                ]);
+                $order->save();
+                }
+                else{
+                    $order = new Order([
+                        'name' =>$request->name,
+                        'address' =>$request->address,
+                        'email' => $request->email,
+                        'phone' => $request->phone,
+                        'payment_method' => $request->payment_method,
+                        'status'=> 'Approved',
+                        'discount_code_id' =>null ,
+                    ]);
+                    $order->save();
+                }
+        }
+        
 
         $carts = Cart::content();
         foreach ($carts as $cart){
@@ -51,8 +126,16 @@ class CheckOutController extends Controller
         }
         $total = Cart::totalFloat();
         $subtotal = Cart::subtotalFloat();
-        $discountcode = (($cart->options->discountcode / 100) * $total);
-        $total = $total - $discountcode;
+        $cart = $carts->first();
+        $discount = DiscountCode::all()->where('code', $cart->options->discountcode)->first();
+        if($discount != null){
+            $discountcode = (($discount->discount / 100) * $total);
+            $total = $total - $discountcode;
+        }
+        else{
+            $discountcode = 0;
+        }
+        
         
         $this->sendEmail($order, $total,$subtotal , $discountcode);
 
@@ -74,4 +157,5 @@ class CheckOutController extends Controller
         $notification  = session('notification');
         return view('front.checkout_result',compact('notification'));
     }
+    
 }

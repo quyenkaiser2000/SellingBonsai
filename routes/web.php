@@ -79,7 +79,13 @@ Route::group(['prefix' => 'admin','middleware' => ['auth','role:admin']],functio
     Route::post('/dashboard/discount/Update/{id}', [App\Http\Controllers\Dashboard\DiscountController::class, 'update']);
 
     Route::get('/dashboard/order',[App\Http\Controllers\Dashboard\OrderController::class,'index'])->name('order');
+    Route::get('/dashboard/order/pending',[App\Http\Controllers\Dashboard\OrderController::class,'orderpending']);
     Route::get('/dashboard/order/{id}',[App\Http\Controllers\Dashboard\OrderController::class,'show']);
+    Route::get('/dashboard/order/pending/{id}',[App\Http\Controllers\Dashboard\OrderController::class,'showpending']);
+    Route::get('/dashboard/order/{id}/pay',[App\Http\Controllers\Dashboard\OrderController::class,'pay']);
+    Route::get('/dashboard/order/{id}/browse',[App\Http\Controllers\Dashboard\OrderController::class,'browse']);
+
+    Route::get('/dashboard/order/delete/{id}',[App\Http\Controllers\Dashboard\OrderController::class,'delete']);
 
     Route::get('/dashboard/chart_js',[App\Http\Controllers\Dashboard\ChartJSController::class,'index']);
 
@@ -88,15 +94,22 @@ Route::group(['prefix' => 'admin','middleware' => ['auth','role:admin']],functio
 
 
 Route::group(['prefix' => 'user','middleware' => ['auth','role:user']],function(){ 
-    Route::get('myaccount/{id}', [App\Http\Controllers\Auth\MyAccount\MyAccountController::class, 'show'])->name('myaccount');
+    Route::get('myaccount', [App\Http\Controllers\Auth\MyAccount\MyAccountController::class, 'show'])->name('myaccount');
 
 
-    Route::get('myaccount/update/{id}', [App\Http\Controllers\Auth\MyAccount\UpdateController::class, 'show']);
-    Route::post('myaccount/update/{id}', [App\Http\Controllers\Auth\MyAccount\UpdateController::class, 'update']);
+    Route::get('myaccount/update', [App\Http\Controllers\Auth\MyAccount\UpdateController::class, 'show']);
+    Route::post('myaccount/update', [App\Http\Controllers\Auth\MyAccount\UpdateController::class, 'update']);
     Route::post('myaccount/DeleteImg',[App\Http\Controllers\Auth\MyAccount\UpdateController::class, 'deleteavatar'])->name('delete_avatar');
 
-    Route::get('myaccount/changepas/{id}', [App\Http\Controllers\Auth\MyAccount\ChangePasswordController::class, 'show']);
-    Route::post('myaccount/changepas/{id}', [App\Http\Controllers\Auth\MyAccount\ChangePasswordController::class, 'changepas']);
+    Route::get('myaccount/changepas', [App\Http\Controllers\Auth\MyAccount\ChangePasswordController::class, 'show']);
+    Route::post('myaccount/changepas', [App\Http\Controllers\Auth\MyAccount\ChangePasswordController::class, 'changepas']);
+
+    Route::get('myaccount/order', [App\Http\Controllers\Auth\MyAccount\OrderController::class, 'show']);
+    Route::get('myaccount/order/detail/{id}', [App\Http\Controllers\Auth\MyAccount\OrderController::class, 'edit']);
+    Route::post('myaccount/order/detail/{id}', [App\Http\Controllers\Auth\MyAccount\OrderController::class, 'update']);
+    Route::get('myaccount/order/detail', [App\Http\Controllers\Auth\MyAccount\OrderController::class, 'updateqty']);
+    Route::get('myaccount/order/detail/delete/{id}', [App\Http\Controllers\Auth\MyAccount\OrderController::class, 'delete']);
+
 
 
     Route::get('kygui', [App\Http\Controllers\Auth\MyAccount\KyguiController::class, 'show'])->name('kygui');
@@ -160,3 +173,14 @@ Route::get('/google_callback',[SocicalController::class,'googleCallback']);
 
 Route::get('/redirect-facebook',[SocicalController::class,'redirectFacebook'])->name('redirectFacebook');
 Route::get('/facebook_callback',[SocicalController::class,'facebookCallback']);
+
+
+Route::get('/streaming', 'App\Http\Controllers\WebrtcStreamingController@index');
+Route::get('/streaming/{streamId}', 'App\Http\Controllers\WebrtcStreamingController@consumer');
+Route::post('/stream-offer', 'App\Http\Controllers\WebrtcStreamingController@makeStreamOffer');
+Route::post('/stream-answer', 'App\Http\Controllers\WebrtcStreamingController@makeStreamAnswer');
+
+/*Route::get('/', function () {
+    return view('chatbot');
+});*/
+Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\BotManController@handle');

@@ -30,3 +30,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+//  Streaming Components
+Vue.component("broadcaster", require("./components/Broadcaster.vue").default);
+Vue.component("viewer", require("./components/Viewer.vue").default);

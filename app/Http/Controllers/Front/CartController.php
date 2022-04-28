@@ -22,26 +22,14 @@ class CartController extends Controller
             'id' => $id,
             'name' => $product->name,
             'qty' => 1,
-            'price' => $product->price,
+            'price' => ($product->price - (($product->discount * $product->price)/100)),
             'weight' => 0,
             'options' => [
                 'images' => $product->productImage,
-                'discountcode' => 0,
-                'discount' => $product->discount,
+                'discountcode' => null,
             ],
 
         ]);
-        $carts = Cart::content();
-        foreach($carts as $cart){
-            $price = ($cart->price - (($cart->options->discount * $cart->price)/100));
-
-            Cart::update(
-                $cart->rowId, [ 
-                'price' => $price, 
-            ]);
-            
-            
-        }
 
         //dd(Cart::content());
         return back();
@@ -57,12 +45,11 @@ class CartController extends Controller
             'id' => $id,
             'name' => $product->name,
             'qty' => $request->qty,
-            'price' => $product->price,
+            'price' => ($product->price - (($product->discount * $product->price)/100)),
             'weight' => 0,
             'options' => [
                 'images' => $product->productImage,
-                'discountcode' => 0,
-                'discount' => $product->discount,
+                'discountcode' => null,
 
 
             ],
@@ -92,7 +79,7 @@ class CartController extends Controller
         $total = Cart::totalFloat();
         $subtotal = Cart::subtotalFloat();
         
-        $discountcode = 0;
+        $discountcode = null;
 
 
 
@@ -112,8 +99,9 @@ class CartController extends Controller
 
         }
 
-        if($discount != 0 && $discount != null && Cart::count() > 0){
+        if( $discount != null && Cart::count() > 0){
 
+            
         
             foreach($carts as $cart){
 
@@ -126,9 +114,11 @@ class CartController extends Controller
             $carts = Cart::content();
             $total = Cart::totalFloat();
             $subtotal = Cart::subtotalFloat();
-            $discountcode = (($cart->options->discountcode / 100) * $total);
+            $code_discount = DiscountCode::all()->where('code', $discount)->first();
+            
+            $discountcode = (($code_discount->discount / 100) * $total);
             $total = $total - $discountcode;
-
+            
             
         }
         
@@ -177,7 +167,8 @@ class CartController extends Controller
             }
 
 
-            $discountcode = $coded->discount;
+            $discountcode = $coded->code;
+            
             return $discountcode;
 
         }

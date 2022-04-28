@@ -107,11 +107,14 @@
                                         @endif
                                         @if($order->status == 'delivered')
                                             <span class="" style="    padding: 10px 13px;background-color: #27a9e3;border-radius: 5px;color:white;">Đã giao</span>
-
-                                            
+                                        @endif
+                                        @if($order->status == 'Pending')
+                                            <button class="btn btn-danger" type="submit"> <a href="/admin/dashboard/order/{{$order->id}}/browse" style="color:white;">Duyệt đơn</a> </button>
+                                            <button class="btn btn-danger" type="submit"> <a href="/admin/dashboard/order/delete/{{$order->id}}" style="color:white;">Hủy đơn</a> </button>
 
                                         @endif
-                                        <button class="btn btn-danger" type="submit"> <a href="/admin/dashboard/order" style="color:white;">Back</a> </button>
+                                        <button class="btn btn-primary" type="submit"> <a href="/admin/dashboard/order/pending" style="color:white;">Back</a> </button>
+                                        
                                     </div>
                                 </div>
                             </div>

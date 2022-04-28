@@ -834,12 +834,11 @@
         }
     </script>
      <script>
-        var proQty = $('.pro-qty');
-       /* proQty.prepend('<a class="inc qty-btn">+</a>');
-        proQty.append('<a class="dec qty-btn">-</a>');
-*/
         
-        proQty.on('click','.qty-btn',function(){
+        
+        var proQty_myaccount = $('.pro-qty');
+       
+        proQty_myaccount.on('click','.qty-btn',function(){
             var $button = $(this);
             console.log($button);
             var oldValue = $button.parent().find('input').val();
@@ -857,21 +856,16 @@
             }
             $button.parent().find('input').val(newVal);
 
-            const rowId = $button.parent().find('input').data('rowid');
-            updatecart(rowId,newVal);
+            const id = $button.parent().find('input').data('id');
+            updatecartmyaccount(id,newVal);
         });
-        
-
-
-
-        function updatecart(rowId,qty){
+        function updatecartmyaccount(id,qty){
             $.ajax({
                 method: "GET",
-                url: "cart/update",
-                data:{rowId:rowId,qty:qty},
+                url: "user/myaccount/order/detail",
+                data:{id:id,qty:qty},
                 success: function(response){
                     //alert('ok');
-                    console.log(response);
                     location.reload();
                 },
                 error: function(error){
@@ -881,8 +875,6 @@
 
             })
         }
-
-        
 
     </script>
    

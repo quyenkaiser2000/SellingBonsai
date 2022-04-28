@@ -41,14 +41,14 @@
                                 <a href="#dashboad" class=" " data-toggle="tab"><i class="fa fa-dashboard"></i>
                                     Dashboard</a>
 
-                                <a href="#orders" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Orders</a>
+                                    <a href="user/myaccount/order"><i class="fa fa-cart-arrow-down"></i> Orders</a>
 
                                 <a href="#payment-method" data-toggle="tab"><i class="fa fa-credit-card"></i> Payment
                                     Method</a>
 
                                 <a href="#address-edit" data-toggle="tab" class="active"><i class="fa fa-map-marker "></i> Account Details</a>
 
-                                <a href="user/myaccount/changepas/{{$user->id}}" ><i class="fa fa-user"></i>Change Password</a>
+                                <a href="user/myaccount/changepas" ><i class="fa fa-user"></i>Change Password</a>
 
                                 <a href="login-register.html"><i class="fa fa-sign-out"></i> Logout</a>
                             </div>
@@ -144,7 +144,7 @@
                                         <h3>Account Details</h3>
 
                                         <div class="account-details-form">
-                                        <form class="form-horizontal col-md-10" action="{{'user/myaccount/update/'.$user->id}}" enctype="multipart/form-data" method="post">
+                                        <form class="form-horizontal col-md-10" action="{{'user/myaccount/update'}}" enctype="multipart/form-data" method="post">
                                             @csrf
                                             <div class="card-body row">
                                                 <div class="col-md-9">
@@ -255,7 +255,7 @@
                                         <h3>Account Details</h3>
 
                                         <div class="account-details-form">
-                                            <form action="{{'user/myaccount/ '.$user->id}}" enctype="multipart/form-data" method="post">
+                                            <form action="{{'user/myaccount'}}" enctype="multipart/form-data" method="post">
                                             @csrf
                                                 <div class="form-group row">
                                                         <label for="name" class="col-sm-3 text-right control-label col-form-label">Họ Tên</label>

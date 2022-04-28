@@ -55,6 +55,15 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
+        $remember_me = $request->has('remember_me')? true: false;
+        if(auth()->attempt(['email'=>$request->email, 'password'=>$request->password],$remember_me)){
+            
+            $user = auth()->user();
+        }
+        else{
+            return back();
+        }
+        
         $role = $user->role->name;
         $redirectRoutes=[
             'admin' =>'admin/dashboard',

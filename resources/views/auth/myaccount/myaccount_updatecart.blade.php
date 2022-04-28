@@ -1,5 +1,5 @@
 
-@extends('front.layout.master')
+@extends('auth.myaccount.master')
 @section('title','Cart Shop')
 @section('body')
   <!--====================  End of Header area  ====================-->
@@ -15,8 +15,10 @@
                     
                     <div class="breadcrumb-content">
                         <ul>
-                            <li class="has-child"><a href="index.html">Home</a></li>
-                            <li>Cart</li>
+                            <li class="has-child"><a href="">Home</a></li>
+                            <li class="has-child"><a href="user/myaccount">My Account</a></li>
+                            <li class="has-child"><a href="user/myaccount/order">My Order</a></li>
+                            <li>Detail</li>
                         </ul>
                     </div>
                     
@@ -38,7 +40,7 @@
                         <!--=======  cart table  =======-->
                         
                         <div class="cart-table table-responsive mb-40">
-                            @if(Cart::count() > 0)
+                            @if(count($orderdetails) > 0)
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -51,15 +53,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($carts as $cart)
+                                        @foreach ($orderdetails as $orderdetail)
                                             
                                             <tr>
-                                                <td class="pro-thumbnail"><a href="single-product.html"><img src="{{asset('/storage/Linkimageproduct/'.$cart->options->images[0]->img)}}" class="img-fluid" alt="Product"></a></td>
-                                                <td class="pro-title"><a href="single-product.html">{{$cart->name}}</a></td>
-                                                <td class="pro-price"><span>{{number_format($cart->price)}} VNĐ</span></td>
-                                                <td class="pro-quantity"><div  class="pro-qty " ><input type="text" value="{{$cart->qty}}" data-rowid="{{$cart->rowId}}"></div></td> 
-                                                <td class="pro-subtotal"><span>{{number_format($cart->price * $cart->qty)}} VNĐ</span></td> 
-                                                <td class="pro-remove"><a href="./cart/delete/{{$cart->rowId}}"><i class="fa fa-trash-o"></i></a></td>
+                                                <td class="pro-thumbnail"><a href="single-product.html"><img src="{{asset('/storage/Linkimageproduct/'.$orderdetail->product->productImage[0]->img)}}" class="img-fluid" alt="Product"></a></td>
+                                                <td class="pro-title"><a href="single-product.html">{{$orderdetail->product->name}}</a></td>
+                                                <td class="pro-price"><span>{{number_format($orderdetail->amount)}} VNĐ</span></td>
+                                                <td class="pro-quantity"><div class="pro-qty"><input type="text" value="{{$orderdetail->qty}}" data-id="{{$orderdetail->id}}"></div></td> 
+                                                <td class="pro-subtotal"><span>{{number_format($orderdetail->amount * $orderdetail->qty)}} VNĐ</span></td> 
+                                                <td class="pro-remove"><a href="user/myaccount/order/detail/delete/{{$orderdetail->id}}"><i class="fa fa-trash-o"></i></a></td>
                                             </tr>
                                         @endforeach
                                         
@@ -67,11 +69,8 @@
                                     </tbody>
                                 </table>
                             @else
-                                <div>
-                                    <h4>Giõ hàng trống !!!</h4>
-                                </div>
-                            @endif
-                           
+                                <h4>Giỏ hàng trống</h4>
+                           @endif
                         </div>
                         
                         <!--=======  End of cart table  =======-->
@@ -95,12 +94,18 @@
                                 <form action="" method="get">
                                     <div class="row">
                                         <div class="col-md-6 col-12 mb-25">
-                                            <input type="text" name="code" placeholder="Coupon Code" value="{{request('code')}}" style="text-transform: uppercase;">
-                                            @if(session()->has('errorcode'))
-                                                <div class="alert alert-primary">
-                                                    {{ session()->get('errorcode') }}
-                                                </div>
+                                            @if($discountcode != null )
+                                                <input type="text" name="code" placeholder="Coupon Code" value="{{$orderdetail_firt->order->discountcode->code}}" style="text-transform: uppercase;">
+                                             
+                                            @else
+                                                <input type="text" name="code" placeholder="Coupon Code" value="{{request('code')}}" style="text-transform: uppercase;">
+                                                
                                             @endif
+                                                @if(session()->has('errorcode'))
+                                                    <div class="alert alert-primary">
+                                                        {{ session()->get('errorcode') }}
+                                                    </div>
+                                                @endif
                                         </div>
                                         <div class="col-md-6 col-12 mb-25">
                                             <input type="submit" value="Apply Code">
@@ -121,14 +126,17 @@
                                 <div class="cart-summary-wrap">
                                     <h4>Cart Summary</h4>
                                     
-                                    <p>Sub Total <span>{{number_format($subtotal)}} VNĐ</span></p>
+                                    <p>Sub Total <span>{{number_format($orderdetails->sum('total'))}} VNĐ</span></p>
                                     <p>Shipping Cost <span>$00.00</span></p>
-                                    <p>Discount Code <span>{{number_format($discountcode)}} VNĐ</span></p>
-                                    <h2>Grand Total <span>{{number_format($total)}} VNĐ</span></h2>
+                                    @if($discountcode != null)
+                                        <p>Discount Code <span>{{number_format(($discountcode / 100) * $orderdetails->sum('total'))}} VNĐ</span></p>
+                                    @else
+                                        <p>Discount Code <span>00 VNĐ</span></p>
+                                    @endif
+                                    <h2>Grand Total <span>{{number_format(($orderdetails->sum('total')) - ($discountcode / 100) * $orderdetails->sum('total'))}} VNĐ</span></h2>
                                 </div>
                                 <div class="cart-summary-button">
-                                    <button class="checkout-btn" onclick="window.location='./checkout'">Checkout</button>
-                                    <button class="update-btn">Update Cart</button>
+                                    <button class="checkout-btn" onclick="window.location='user/myaccount/order'">Update Cart</button>
                                 </div>
                             </div>
                         

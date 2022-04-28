@@ -41,14 +41,14 @@
                                 <a href="#dashboad" class="active" data-toggle="tab"><i class="fa fa-dashboard"></i>
                                     Dashboard</a>
 
-                                <a href="#orders" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Orders</a>
+                                <a href="user/myaccount/order"><i class="fa fa-cart-arrow-down"></i> Orders</a>
 
                                 <a href="#payment-method" data-toggle="tab"><i class="fa fa-credit-card"></i> Payment
                                     Method</a>
 
-                                <a href="user/myaccount/update/{{$user->id}}" ><i class="fa fa-map-marker"></i>Account Details</a>
+                                <a href="user/myaccount/update" ><i class="fa fa-map-marker"></i>Account Details</a>
 
-                                <a href="user/myaccount/changepas/{{$user->id}}" ><i class="fa fa-user"></i>Change Password</a>
+                                <a href="user/myaccount/changepas" ><i class="fa fa-user"></i>Change Password</a>
 
                                 <a href="login-register.html"><i class="fa fa-sign-out"></i> Logout</a>
                             </div>
@@ -64,12 +64,12 @@
                                         <h3>Dashboard</h3>
 
                                         <div class="welcome mb-20">
-                                            <p>Hello, <strong>Alex Tuntuni</strong> (If Not <strong>Tuntuni !</strong><a href="login-register.html" class="logout"> Logout</a>)</p>
+                                            <p>Hello, <strong>{{Auth::user()->name}}</strong></p>
                                         </div>
 
-                                        <p class="mb-0">From your account dashboard. you can easily check &amp; view your
-                                            recent orders, manage your shipping and billing addresses and edit your
-                                            password and account details.</p>
+                                        <p class="mb-0">Từ trang tổng quan tài khoản của bạn. bạn có thể dễ dàng kiểm tra; xem lịch sử
+                                            đơn đặt hàng gần đây của bạn, quản lý địa chỉ giao hàng và chỉnh sửa
+                                            mật khẩu và chi tiết tài khoản.</p>
                                     </div>
                                 </div>
                                 <!-- Single Tab Content End -->
@@ -144,8 +144,8 @@
                                         <h3>Account Details</h3>
 
                                         <div class="account-details-form">
-                                        <form class="form-horizontal col-md-10" action="{{'user/myaccount/'.$user->id}}" enctype="multipart/form-data" method="post">
-                                            @csrf
+                                        <form class="form-horizontal col-md-10"  enctype="multipart/form-data" >
+                                            
                                             <div class="card-body row">
                                                 <div class="col-md-9">
                                                     <div class="form-group row">
@@ -260,8 +260,8 @@
                                         <h3>Account Details</h3>
 
                                         <div class="account-details-form">
-                                            <form action="{{'user/myaccount/ '.$user->id}}" enctype="multipart/form-data" method="post">
-                                            @csrf
+                                            <form  enctype="multipart/form-data" >
+                                            
                                                 <div class="form-group row">
                                                         <label for="name" class="col-sm-3 text-right control-label col-form-label">Họ Tên</label>
                                                     <div class="col-sm-9">

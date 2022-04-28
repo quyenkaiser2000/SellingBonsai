@@ -34,16 +34,7 @@ class DiscountController extends Controller
         $discount = DiscountCode::findOrFail($id);
 
 
-        $coded = DiscountCode::all();
         
-        foreach ($coded as $code){
-            
-            if($code->code == $request->code) {
-                return redirect()->back()->with('errorcode', 'Mã code đã tồn tại');
-                break;
-
-            }
-        }
         $discount->name = $request->name;
         $discount->description = $request->description;
         $discount->discount = $request->discount;

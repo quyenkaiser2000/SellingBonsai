@@ -21,6 +21,8 @@ class CreateOrdersTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('payment_method');
+            $table->string('status');
+            $table->integer('discount_code_id')->nullable();
 
 
             $table->timestamps();

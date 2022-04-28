@@ -422,7 +422,7 @@
     <!--=======  End of product description review   =======-->
     <!--====================  product single row slider area ====================-->
 
-    <div class="product-single-row-slider-area mb-40">
+    <div class="product-single-row-slider-area ">
         <div class="container">
 
             <div class="row">
