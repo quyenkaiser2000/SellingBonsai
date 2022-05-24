@@ -136,7 +136,13 @@
                                     <h2>Grand Total <span>{{number_format(($orderdetails->sum('total')) - ($discountcode / 100) * $orderdetails->sum('total'))}} VNĐ</span></h2>
                                 </div>
                                 <div class="cart-summary-button">
-                                    <button class="checkout-btn" onclick="window.location='user/myaccount/order'">Update Cart</button>
+                                    @if($discountOrder->status == 'delivered' || $discountOrder->status == 'Approved')
+                                        <button class="checkout-btn" onclick="window.location='user/myaccount/order'">Back</button>
+                                    @endif
+                                    @if($discountOrder->status == 'Pending')
+                                        <button class="checkout-btn" onclick="window.location='user/myaccount/order'">Update cart</button>
+                                    
+                                    @endif
                                 </div>
                             </div>
                         

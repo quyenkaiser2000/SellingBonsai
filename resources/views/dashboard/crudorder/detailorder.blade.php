@@ -95,9 +95,16 @@
                                     <div class="pull-right m-t-30 text-right">
                                         <p>Sub - Total amount: {{number_format($orderdetails->sum('total'))}} VNĐ</p>
                                         <p>Ship Free: 00.0 VNĐ</p>
-                                        <p>Discount Code: {{number_format((($order->orderDetails->sum('total') * $order->discountcode->discount)/100))}} VNĐ</p>
-                                        <hr>
-                                        <h3><b>Total :</b> {{number_format((($order->orderDetails->sum('total')) - (($order->orderDetails->sum('total') * $order->discountcode->discount)/100)))}} VNĐ</h3>
+                                        @if($order->discount_code_id != null)
+                                            <p>Discount Code: {{number_format((($order->orderDetails->sum('total') * $order->discountcode->discount)/100))}} VNĐ</p>
+                                            <hr>
+                                            <h3><b>Total :</b> {{number_format((($order->orderDetails->sum('total')) - (($order->orderDetails->sum('total') * $order->discountcode->discount)/100)))}} VNĐ</h3>
+                                        @else
+                                            <p>Discount Code: 00.00 VNĐ</p>
+                                            <hr>
+                                            <h3><b>Total :</b> {{number_format($order->orderDetails->sum('total'))}} VNĐ</h3>
+                                            
+                                        @endif
                                     </div>
                                     <div class="clearfix"></div>
                                     <hr>

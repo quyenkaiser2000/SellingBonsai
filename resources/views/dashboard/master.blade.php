@@ -251,8 +251,7 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{'/admin/dashboard/chart_js'}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Widgets</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{'/admin/livestream'}}" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Start live</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{'/admin/dashboard/order'}}" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Thông tin đặt hàng</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{'/admin/dashboard/discount'}}" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Mã giảm giá</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{'/admin/dashboard/kygui'}}" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Sản phẩm ký gửi</span></a></li>

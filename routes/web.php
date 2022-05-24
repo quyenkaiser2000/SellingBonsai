@@ -89,11 +89,19 @@ Route::group(['prefix' => 'admin','middleware' => ['auth','role:admin']],functio
 
     Route::get('/dashboard/chart_js',[App\Http\Controllers\Dashboard\ChartJSController::class,'index']);
 
+    Route::get('/livestream',[App\Http\Controllers\Dashboard\LiveStreamController::class,'index']);
+    Route::get('/livestream/room=admin',[App\Http\Controllers\Dashboard\LiveStreamController::class,'joinlive']);
+
+
 });
 
 
 
 Route::group(['prefix' => 'user','middleware' => ['auth','role:user']],function(){ 
+    Route::get('/livestream',[App\Http\Controllers\Auth\LiveStreamController::class,'index']);
+    Route::get('/livestream/room=admin',[App\Http\Controllers\Auth\LiveStreamController::class,'joinlive']);
+
+
     Route::get('myaccount', [App\Http\Controllers\Auth\MyAccount\MyAccountController::class, 'show'])->name('myaccount');
 
 
@@ -167,6 +175,13 @@ Auth::routes();
 Route::post('logout-user',[App\Http\Controllers\SessionsController::class, 'destroy']);
 //Route::get('/logout', [App\Http\Controllers\LogoutController::class, 'perform'])->name('logout.perform');
 
+Route::get('/send-mail', function () {
+    return view('auth/email');
+});
+Route::post('send-mail', [App\Http\Controllers\ResetPasswordController::class, 'sendMail'])->name('sendMail');
+Route::get('reset-password/{token}', [App\Http\Controllers\ResetPasswordController::class, 'showreset']);
+Route::post('reset-password/{token}', [App\Http\Controllers\ResetPasswordController::class, 'reset']);
+
 
 Route::get('/redirect-google',[SocicalController::class,'redirectGoogle'])->name('redirectGoogle');
 Route::get('/google_callback',[SocicalController::class,'googleCallback']);
@@ -184,3 +199,5 @@ Route::post('/stream-answer', 'App\Http\Controllers\WebrtcStreamingController@ma
     return view('chatbot');
 });*/
 Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\BotManController@handle');
+
+

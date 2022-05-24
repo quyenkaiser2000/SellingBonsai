@@ -69,7 +69,11 @@
                                                                     <td>{{$order->id}}</td>
                                                                     <td>{{$order->name}}</td>
                                                                     <td>{{$order->payment_method}}</td>
-                                                                    <td>{{number_format((($order->orderDetails->sum('total')) - (($order->orderDetails->sum('total') * $order->discountcode->discount)/100)))}} VNĐ</td>
+                                                                    @if($order->discount_code_id != null)
+                                                                        <td>{{number_format((($order->orderDetails->sum('total')) - (($order->orderDetails->sum('total') * $order->discountcode->discount)/100)))}} VNĐ</td>
+                                                                    @else
+                                                                        <td>{{number_format($order->orderDetails->sum('total'))}} VNĐ</td>
+                                                                    @endif
                                                                     @if($order->status == 'delivered')
                                                                         <td>Đã Giao</td>
                                                                     @endif

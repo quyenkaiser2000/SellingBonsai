@@ -23,9 +23,11 @@ class OrderController extends Controller
     public function edit(Request $request, $id){
         $orderdetails = OrderDetail::all()->where('order_id', $id);
         $orderdetail_firt = OrderDetail::all()->where('order_id', $id)->first();
-        
         $discountOrder = Order::find($id);
-        
+        if($discountOrder == null ){
+            $discountcode = null;
+            return view('auth.myaccount.myaccount_updatecart',compact( 'orderdetails','discountcode','orderdetail_firt','discountOrder'));
+        }
         //dd($discountOrder->discount_code_id);
         if($discountOrder->discount_code_id != null && $discountOrder->discount_code_id != '0'){
         
@@ -68,7 +70,7 @@ class OrderController extends Controller
         
         
         
-        return view('auth.myaccount.myaccount_updatecart',compact( 'orderdetails','discountcode','orderdetail_firt'));
+        return view('auth.myaccount.myaccount_updatecart',compact( 'orderdetails','discountcode','orderdetail_firt','discountOrder'));
     }
     public function updateqty(Request $request){
         $orderdetail = OrderDetail::find($request->id);
@@ -80,13 +82,18 @@ class OrderController extends Controller
             $orderdetail->qty = $request->qty;
             $orderdetail->total = $request->qty * $orderdetail->amount;
             $orderdetail->save();
+            return back();
 
         }
+        
         if($request->qty == 0){
             if(count($orderdetails) <= 1){
                 $orderdetail->delete();
                 $order->delete();
-
+            }
+            else{
+                $orderdetail->delete();
+    
             }
         }
 
@@ -100,7 +107,7 @@ class OrderController extends Controller
         if(count($orderdetails) <= 1){
             $orderdetail->delete();
             $order->delete();
-            return back();
+            return redirect('/user/myaccount/order');
 
         }
         else{

@@ -295,7 +295,7 @@
                                         
                                     </li>
 
-                                    <li class=" {{(request()->segment(1) == 'blog') ? 'active' : ''}}"><a href="blog-left-sidebar.html">BLOG</a>
+                                    <li class=" {{(request()->segment(1) == 'blog') ? 'active' : ''}}"><a href="{{'user/livestream'}}">LIVE</a>
                                         
                                     </li>
 

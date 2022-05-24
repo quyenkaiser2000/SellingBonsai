@@ -101,7 +101,11 @@
                                                             <td>{{$order->name}}</td>
                                                             <td>{{$order->created_at}}</td>
                                                             <td>{{$order->status}}</td>
-                                                            <td>{{number_format((($order->orderDetails->sum('total')) - (($order->orderDetails->sum('total') * $order->discountcode->discount)/100)))}} VNĐ</td>
+                                                            @if($order->discount_code_id != null)
+                                                                <td>{{number_format((($order->orderDetails->sum('total')) - (($order->orderDetails->sum('total') * $order->discountcode->discount)/100)))}} VNĐ</td>
+                                                            @else
+                                                                <td>{{number_format($order->orderDetails->sum('total'))}} VNĐ</td>
+                                                            @endif
                                                             <td><a href="user/myaccount/order/detail/{{$order->id}}" class="btn">View</a></td>
                                                         </tr>
                                                     @endforeach
