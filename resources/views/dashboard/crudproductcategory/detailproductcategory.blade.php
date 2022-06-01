@@ -17,8 +17,9 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                    <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="/admin/dashboard/ProductCategory">Loại sản phẩm</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Detail</li>
                                 </ol>
                             </nav>
                         </div>
@@ -70,7 +71,8 @@
                                     <div class="border-top">
                                         <div class="card-body">
                                             <button type="button" class="btn btn-primary"><a href="{{route('productcategory')}}" style="color:white;">Back</a></button>
-                                            <button type="submit" class="btn btn-primary">Edit</button>
+                                            <button type="button" class="btn btn-primary"><a href="/admin/dashboard/ProductCategory/Update/{{$productCategory->id}}" style="color:white;">Edit</a></button>
+                                            
                                         </div>
                                     </div>
                             </form>

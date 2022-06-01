@@ -111,6 +111,15 @@ box-sizing: border-box;background-color: bisque;">
                         <td>{{number_format($total)}}    VNĐ</td>
 
                     </tr>
+                    @if($order->payment_method == "online_payment")
+                        <tr class="table-warning" style="display: flex;
+        justify-content: space-around;">
+                            <th style="    margin-right: 600px;
+        margin-left: 100px;">Thanh toán</th>
+                            <td>Đã thanh toán</td>
+
+                        </tr>
+                    @endif
                   
                 </tbody>
               </table>

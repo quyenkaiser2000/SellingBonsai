@@ -17,10 +17,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $newproducts = Product::latest()->limit(10)->get();
+        $newproducts = Product::latest()->where('status', '=', 1)->where('status_delete', '=', 1)->limit(10)->get();
         $bannernewproducts = Product::find(7);
        
-        $products = Product::latest()->limit(2)->get();
+        $products = Product::latest()->where('status', '=', 1)->where('status_delete', '=', 1)->limit(2)->get();
         
         
        /* $pricediscounts = Product::all();
@@ -30,8 +30,8 @@ class HomeController extends Controller
         
 
 
-        $productcategory = ProductCategory::all();
-        $productbrands = Brand::all();
+        $productcategory = ProductCategory::all()->where('status_delete', '=', 1);
+        $productbrands = Brand::all()->where('status_delete', '=', 1);
 
 
 

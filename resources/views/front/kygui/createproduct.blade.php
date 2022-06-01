@@ -50,11 +50,11 @@
                                                 <div class="col-sm-9">
                                                     <input id="name" placeholder="tên sản phẩm" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                                                    @if(session()->has('errorname'))
-                                                        <div class="alert alert-primary">
-                                                            {{ session()->get('errorname') }}
-                                                        </div>
-                                                    @endif
+                                                        @error('name')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
                                                 </div>
                                                 
                                             </div>

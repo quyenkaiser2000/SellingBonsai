@@ -17,8 +17,9 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="/admin/dashboard/Product">Order</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Detail</li>
                                 </ol>
                             </nav>
                         </div>
@@ -70,6 +71,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sản phẩm</th>
+                                                    <th>Người đăng</th>
                                                     <th class="text-right">Số lượng</th>
                                                     <th class="text-right">Đơn giá</th>
                                                     <th class="text-right">Tổng tiền</th>
@@ -80,6 +82,11 @@
                                                 @foreach($orderdetails as $orderdetail)
                                                     <tr>
                                                         <td>{{$orderdetail->product->name}}</td>
+                                                        @if($orderdetail->product->user_id == null)
+                                                            <td>Admin</td>
+                                                        @else
+                                                            <td>{{$orderdetail->product->user->name}}</td>
+                                                        @endif
                                                         <td class="text-right">{{$orderdetail->qty}} </td>
                                                         <td class="text-right">{{number_format($orderdetail->amount)}} VNĐ</td>
                                                         <td class="text-right">{{number_format($orderdetail->total)}} VNĐ</td>

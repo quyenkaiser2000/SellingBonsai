@@ -42,12 +42,12 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th class="pro-thumbnail">Image</th>
-                                            <th class="pro-title">Product</th>
-                                            <th class="pro-price">Price</th>
-                                            <th class="pro-quantity">Quantity</th>
-                                            <th class="pro-subtotal">Total</th>
-                                            <th class="pro-remove">Remove</th>
+                                            <th class="pro-thumbnail">Hình ảnh</th>
+                                            <th class="pro-title">Sản phẩm</th>
+                                            <th class="pro-price">Giá</th>
+                                            <th class="pro-quantity">Số lượng</th>
+                                            <th class="pro-subtotal">Tổng cộng</th>
+                                            <th class="pro-remove">Xóa</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -91,7 +91,7 @@
                             <!--=======  Discount Coupon  =======-->
                             
                             <div class="discount-coupon">
-                                <h4>Discount Coupon Code</h4>
+                                <h4>Mã phiếu giảm giá</h4>
                                 <form action="" method="get">
                                     <div class="row">
                                         <div class="col-md-6 col-12 mb-25">
@@ -119,16 +119,15 @@
                         
                             <div class="cart-summary">
                                 <div class="cart-summary-wrap">
-                                    <h4>Cart Summary</h4>
+                                    <h4>Chi tiết giỏ hàng</h4>
                                     
-                                    <p>Sub Total <span>{{number_format($subtotal)}} VNĐ</span></p>
-                                    <p>Shipping Cost <span>$00.00</span></p>
-                                    <p>Discount Code <span>{{number_format($discountcode)}} VNĐ</span></p>
-                                    <h2>Grand Total <span>{{number_format($total)}} VNĐ</span></h2>
+                                    <p>Tổng phụ <span>{{number_format($subtotal)}} VNĐ</span></p>
+                                    <p>Giá vận chuyển <span>$00.00</span></p>
+                                    <p>Mã giảm giá <span>{{number_format($discountcode)}} VNĐ</span></p>
+                                    <h2>Tổng cộng <span>{{number_format($total)}} VNĐ</span></h2>
                                 </div>
                                 <div class="cart-summary-button">
-                                    <button class="checkout-btn" onclick="window.location='./checkout'">Checkout</button>
-                                    <button class="update-btn">Update Cart</button>
+                                    <button class="checkout-btn" onclick="window.location='./checkout'">Thanh toán</button>
                                 </div>
                             </div>
                         

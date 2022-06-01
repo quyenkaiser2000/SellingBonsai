@@ -92,7 +92,7 @@
                                     <div class="card-body">
                                         <button type="button" class="btn btn-primary"><a href="{{'/user/kygui'}}" style="color:white;">Back</a></button>
                                         <button type="button" class="btn btn-primary"><a href="/user/kygui/update/{{ $product->id }}" style="color:white;">Edit</a></button>
-                                        <button type="button" class="btn btn-danger">Delete</button>
+                                        
                                     </div>
                                 </div>
                             </form>

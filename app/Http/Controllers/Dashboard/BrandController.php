@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Brand;
+use Illuminate\Support\Facades\Validator;
+
 class BrandController extends Controller
 {
     /**
@@ -14,7 +16,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brands = Brand::all();
+        $brands = Brand::all()->where('status_delete', '==', '1');
         
         //dd($brands);
         return view('dashboard.brand',compact('brands'));
@@ -39,6 +41,9 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'name' => 'required|unique:brands|max:255',
+        ]);
         $data = $request->all();
         Brand::create($data);
         
@@ -85,6 +90,17 @@ class BrandController extends Controller
         
         
             $brand =  Brand::find($id);
+            
+            if($request->name != $brand->name) {
+                $validated = $request->validate([
+                    'name' => 'required|unique:brands|max:255',
+                ]);
+            }
+            else{
+                $validated = $request->validate([
+                    'name' => 'required|max:255',
+                ]);
+            }
             //dd($request->name);
             //dd($data);
             $brand->name = $request->input('name');
@@ -98,12 +114,11 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
         $brand = Brand::findOrFail($id);
-        //dd($brand);
-        //
-        $brand->delete();
-        return redirect()->route('brand');
+        $brand->status_delete = '0';
+        $brand->save();
+        return redirect()->back();
     }
 }

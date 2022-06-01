@@ -170,19 +170,14 @@
                                 
                             </div>
                             <button class="theme-button product-cart-button" type="submit" >+ Add to Cart</button>
+                            <span style="display: block !important;margin-top:20px;">{{$productids->qty}} Sản phẩm có sẵn</span>
                         </div>
                         @if(session()->has('errorqty'))
                                     <div class="alert alert-primary">
                                         {{ session()->get('errorqty') }}
                                     </div>
                                 @endif
-                        <div class="compare-button d-inline-block mr-40">
-                            <a href="#"><i class="icon-sliders"></i> Compare This Product</a>
-                        </div>
-
-                        <div class="wishlist-button d-inline-block">
-                            <a href="#"><i class="icon-heart"></i> Add to Wishlist</a>
-                        </div>
+                        
 
                         <div class="product-details-feature-wrapper d-flex justify-content-start mt-20">
                             <!--=======  single icon feature  =======-->
@@ -231,15 +226,7 @@
                             <!--=======  End of single icon feature  =======-->
                         </div>
 
-                        <div class="social-share-buttons mt-20">
-                            <h3>share this product</h3>
-                            <ul>
-                                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
-                            </ul>
-                        </div>
+                        
 
                     </div>
 

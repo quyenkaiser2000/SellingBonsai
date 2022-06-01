@@ -52,7 +52,7 @@
                      <input type="text" name="name" required placeholder="Enter your display name..." value="{{Auth::user()->name}}"/>
                  </div>
  
-                 <div class="form__field__wrapper" style="">
+                 <div class="form__field__wrapper" style="display:none;">
                      <label>Room Name</label>
                      <input type="text" name="room"  placeholder="Enter room name..." />
                  </div>

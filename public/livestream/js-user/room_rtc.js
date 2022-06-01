@@ -41,7 +41,7 @@ let joinRoomInit = async () => {
     await rtmClient.addOrUpdateLocalUserAttributes({'name':displayName})
 
 
-
+    
     channel = await rtmClient.createChannel(roomId)
     await channel.join()
 

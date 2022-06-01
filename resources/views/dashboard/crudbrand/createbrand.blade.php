@@ -17,8 +17,9 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                    <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="/admin/dashboard/Brand">Thương hiệu</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Create</li>
                                 </ol>
                             </nav>
                         </div>
@@ -38,60 +39,28 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
-                        <form class="form-horizontal col-md-10" action="{{'admin/dashboard/discount/Create'}}" method="post">
+                        <form class="form-horizontal col-md-10" action="./Create" method="post">
                                 @csrf
                                     <div class="card-body">
-                                        <h4 class="card-title">Discount Info</h4>
+                                        <h4 class="card-title">Brand Info</h4>
                                         <div class="form-group row">
-                                            <label for="name" class="col-sm-3 text-right control-label col-form-label">Tên mã giảm</label>
+                                            <label for="name" class="col-sm-3 text-right control-label col-form-label">Tên thương hiệu</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="name" name="name" placeholder="First Name Here" value="{{$discount->name}}">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="description" class="col-sm-3 text-right control-label col-form-label">Chi tiết</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="description" name="description" placeholder="First Name Here" value="{{$discount->description}}">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="discount" class="col-sm-3 text-right control-label col-form-label">Giảm giá</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="discount" name="discount" placeholder="First Name Here" value="{{$discount->discount}}">
-                                            </div>
-                                        </div><div class="form-group row">
-                                            <label for="discount" class="col-sm-3 text-right control-label col-form-label">Code Discount</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="code" name="code" placeholder="First Name Here" value="{{$discount->code}}">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="start_day" class="col-sm-3 text-right control-label col-form-label">Ngày bắt đầu</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control mydatepicker" id="" name="start_day" placeholder="mm/dd/yyyy" value="{{\Carbon\Carbon::Parse($discount->start_day)->format('d/m/Y')}}">
-                                                @if(session()->has('errorstartday'))
-                                                    <div class="alert alert-primary">
-                                                        {{ session()->get('errorstartday') }}
-                                                    </div>
-                                                @endif
+                                                <input id="name" placeholder="Tên thương hiệu"  type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                                    @error('name')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                             </div>
                                         </div>
                                         
-                                        <div class="form-group row">
-                                            <label for="end_day" class="col-sm-3 text-right control-label col-form-label">Ngày kết thúc</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control mydatepicker" id="" name="end_day" placeholder="mm/dd/yyyy" value="{{\Carbon\Carbon::Parse($discount->end_day)->format('d/m/Y')}}">
-                                                @if(session()->has('errorendday'))
-                                                    <div class="alert alert-primary">
-                                                        {{ session()->get('errorendday') }}
-                                                    </div>
-                                                @endif
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                     <div class="border-top">
                                         <div class="card-body">
-                                            <button type="button" class="btn btn-primary"><a href="{{'/admin/dashboard/discount'}}" style="color:white;">Back</a></button>
+                                            <button type="button" class="btn btn-primary"><a href="{{'/admin/dashboard/Brand'}}" style="color:white;">Back</a></button>
                                             <button type="submit" class="btn btn-primary">Create</button>
                                         </div>
                                     </div>

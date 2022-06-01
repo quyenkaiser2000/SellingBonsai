@@ -11,8 +11,8 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                    <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Thương hiệu</li>
                                 </ol>
                             </nav>
                         </div>
@@ -57,6 +57,7 @@
                                                     <td>
                                                             <button type="submit" class="btn btn-success"> <a href="Brand/{{ $brand->id }}" style="color:white;">Detail</a></button>
                                                             <button type="submit" class="btn btn-success"> <a href="Brand/Update/{{ $brand->id }}" style="color:white;">Edit</a></button>
+                                                            <button type="submit" class="btn btn-danger"> <a href="Brand/Delete/{{ $brand->id }}" style="color:white;">Delete</a></button>
                                                     </td>
                                                 </tr>
                                             @endforeach

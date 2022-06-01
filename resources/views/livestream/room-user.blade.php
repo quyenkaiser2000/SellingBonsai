@@ -20,7 +20,7 @@
             </button>
             <a href="/"/>
                 <h3 id="logo">
-                    <img src="front/img/logo.png" alt="Logo">
+                    <img src="" alt="Logo">
                 </h3>
             </a>
        </div>

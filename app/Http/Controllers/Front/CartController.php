@@ -41,6 +41,9 @@ class CartController extends Controller
         if($request->qty <= 0){
             return redirect()->back()->with('errorqty', 'Số lượng phải lớn hơn 1');
         }
+        if($request->qty > $product->qty){
+            return redirect()->back()->with('errorqty', 'Vượt quá số lượng sản phẩm');
+        }
         Cart::add([
             'id' => $id,
             'name' => $product->name,

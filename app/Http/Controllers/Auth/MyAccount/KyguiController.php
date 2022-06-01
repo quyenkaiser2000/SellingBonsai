@@ -9,16 +9,20 @@ use App\Models\Product;
 use App\Models\Brand;
 use App\Models\ProductCategory;
 use App\Models\ProductImage;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use App\Models\OrderDetail;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+
 use Illuminate\Support\Facades\File;
+
 class KyguiController extends Controller
 {
     //
     public function show(){
         $user_id= Auth::user()->id;
 
-        $products = Product::all()->where('user_id',$user_id);
+        $products = Product::all()->where('user_id',$user_id)->where('status_delete','1');
         
         return view('front.kygui.index',compact('products'));
     }
@@ -30,14 +34,14 @@ class KyguiController extends Controller
     public function active(){
         $user_id= Auth::user()->id;
 
-        $products = Product::all()->where('user_id',$user_id)->where('status','1');
+        $products = Product::all()->where('user_id',$user_id)->where('status','1')->where('status_delete','1');
         
         return view('front.kygui.active',compact('products'));
     }
     public function browser(){
         $user_id= Auth::user()->id;
 
-        $products = Product::all()->where('user_id',$user_id)->where('status','0');
+        $products = Product::all()->where('user_id',$user_id)->where('status','0')->where('status_delete','1');
         
         return view('front.kygui.browser',compact('products'));
     }
@@ -46,8 +50,8 @@ class KyguiController extends Controller
 
 
     public function create(){
-        $brands = Brand::all();
-        $productcategories = ProductCategory::all();
+        $brands = Brand::all()->where('status_delete','1');
+        $productcategories = ProductCategory::all()->where('status_delete','1');
         return view('front.kygui.createproduct',compact('productcategories','brands'));
     }
     public function store(Request $request){
@@ -55,17 +59,15 @@ class KyguiController extends Controller
 
         $input = $request->all();
         $product = Product::all();
-       /* $errorname  = session('errorname');
-        foreach ($product as $pr){
-               
-            if(strcmp($pr->name, $request->name) == 0){
-                return redirect()->back()->with('errorname', 'Tên đã tồn tại');
-                
-            }
-            break;
-        }*/
+        
+        $validated = $request->validate([
+            'name' => 'required|unique:products|max:255',
+            'description' => 'required|string',
+            'price' => 'required|integer',
+            'qty' => 'required|integer',
+            'discount' => 'required|integer',
+        ]);
 
-        //dd($input);
         $brand_id =  $input['brand_id'];
         $brand_id1 = Brand::select('id')->where('name', $brand_id)->get();
         $brand_id2 = ($brand_id1[0]);
@@ -290,6 +292,25 @@ class KyguiController extends Controller
       // dd($input);
         $product  = Product::find($id);
         
+        if($request->name != $product->name){
+            $validated = $request->validate([
+                'name' => 'required|unique:products|max:255',
+                'description' => 'required|string',
+                'price' => 'required|integer',
+                'qty' => 'required|integer',
+                'discount' => 'required|integer',
+            ]);
+        }
+        else{
+            $validated = $request->validate([
+                'name' => 'required|max:255',
+                'description' => 'required|string',
+                'price' => 'required|integer',
+                'qty' => 'required|integer',
+                'discount' => 'required|integer',
+            ]); 
+        }
+
         if($input['brand_id'] != null){
             $brand_id =  $input['brand_id'];
             $brand_id1 = Brand::select('id')->where('name', $brand_id)->get();
@@ -479,23 +500,38 @@ class KyguiController extends Controller
     }
     public function delete($id){
         $product = Product::findOrFail($id);
+        $product->status_delete = '0';
 
-        $productimgs = ProductImage::all()->where('product_id',$id);
-        
-        foreach ($productimgs as $productimg)
-        {
-            if($productimg->img != null && Storage::disk('public')->exists('Linkimageproduct/'.$productimg->img)){
-                Storage::disk('public')->delete('Linkimageproduct/'.$productimg->img);
-
-            }
-            $productimg->delete();
-
-        }
-        
-
-
-        $product->delete();
+        $product->save();
 
         return redirect()->back();
+    }
+
+
+
+    public function index_order(){
+        $product_ids = Product::select('id','user_id')->where('user_id', Auth::user()->id)->get();
+        //dd($product_ids);
+
+
+        
+        /*$authors = OrderDetail::with('product')
+            ->whereHas('product', function (Builder $query) {
+            $query->where('user_id',Auth::user()->id);
+            })
+            ->get();*/
+
+        $orderdetails = OrderDetail::whereHas('product', function($q){
+                $q->where('user_id',Auth::user()->id);
+            })->get();
+        //dd($orderdetails);
+        return view('front.kygui.order',compact('orderdetails'));
+    }
+    public function detail_order($id){
+        
+
+        $orderdetail = OrderDetail::findOrFail($id);
+        //dd($orderdetail);
+        return view('front.kygui.detailorder',compact('orderdetail'));
     }
 }

@@ -17,6 +17,8 @@ class CreateProductCategoriesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('img')->nullable();
+            $table->string('status_delete')->default(1)->nullable();
+
 
             $table->timestamps();
         });

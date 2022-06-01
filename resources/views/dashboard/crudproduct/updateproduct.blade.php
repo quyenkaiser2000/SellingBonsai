@@ -17,8 +17,9 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="/admin/dashboard/Product">Sản phẩm</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Update</li>
                                 </ol>
                             </nav>
                         </div>
@@ -46,7 +47,13 @@
                                             <div class="form-group row">
                                                 <label for="fname" class="col-sm-3 text-right control-label col-form-label">Tên sản phẩm</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="name" name="name" placeholder="First Name Here" value="{{$product->name}}">
+                                                    <input id="name" placeholder="tên sản phẩm" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{$product->name}}" required autocomplete="name" autofocus>
+
+                                                        @error('name')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
                                                 </div>
                                             </div>
 
@@ -79,25 +86,47 @@
                                         <div class="form-group row">
                                             <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Thông tin chi tiết</label>
                                             <div class="col-sm-9">
-                                                <textarea id="description" name="description" class="form-control">{{$product->description}}</textarea>
+                                                <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description" value="" required autocomplete="description" autofocus>{{$product->description}}</textarea>
+                                                    @error('description')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="lname" class="col-sm-3 text-right control-label col-form-label">Số lượng</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="qty" name="qty" placeholder="" value="{{$product->qty}}">
+                                                <input id="qty" placeholder="Số lượng" type="text" class="form-control @error('qty') is-invalid @enderror" name="qty" value="{{$product->qty}}" required autocomplete="qty" autofocus>
+                                                @error('qty')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="lname" class="col-sm-3 text-right control-label col-form-label">Giá</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="price" name="price" placeholder="" value="{{$product->price}}">
+                                                <input id="price" placeholder="Price" type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{$product->price}}" required autocomplete="price" autofocus>
+
+                                                    @error('price')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="lname" class="col-sm-3 text-right control-label col-form-label">Giảm giá</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="discount" name="discount" placeholder="" value="{{$product->discount}}">
+                                                <input id="discount" placeholder="giảm giá" type="text" class="form-control @error('discount') is-invalid @enderror" name="discount" value="{{$product->discount}}" required autocomplete="discount" autofocus>
+
+                                                    @error('discount')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                             </div>
                                         </div>
                                         </div>

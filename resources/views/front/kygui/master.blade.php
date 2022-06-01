@@ -131,7 +131,8 @@
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link active" href="{{'/user/kygui'}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Tất cả sản phẩm</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{'/user/kygui/create'}}" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Thêm sản phẩm</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Widgets</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{'/user/kygui/order'}}" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Thông tin đặt hàng</span></a></li>
+
                         
                     </ul>
                 </nav>

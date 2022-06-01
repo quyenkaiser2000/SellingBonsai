@@ -8,6 +8,7 @@ use App\Models\DiscountCode;
 use Carbon\Carbon;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Validator;
+
 use Illuminate\Validation\Rule;
 class DiscountController extends Controller
 {
@@ -33,8 +34,43 @@ class DiscountController extends Controller
         $errorendday  = session('errorendday');
         $discount = DiscountCode::findOrFail($id);
 
+        if($request->code == $discount->code && $request->name == $discount->name)
+        {
+            $validated = $request->validate([
+                'name' => 'required|string|max:255',
+                'description' => 'required|string',
+                'code' => 'required|string|max:255',
+                'discount' => 'required|integer',
+            ]);
+        }
 
-        
+        if($request->code == $discount->code && $request->name != $discount->name)
+        {
+            $validated = $request->validate([
+                'name' => 'required|unique:discount_code|max:255',
+                'description' => 'required|string',
+                'code' => 'required|string|max:255',
+                'discount' => 'required|integer',
+            ]);
+        }
+        if($request->code != $discount->code && $request->name == $discount->name)
+        {
+            $validated = $request->validate([
+                'name' => 'required|max:255',
+                'description' => 'required|string',
+                'code' => 'required|string|unique:discount_code|max:255',
+                'discount' => 'required|integer',
+            ]);
+        }
+        if($request->code != $discount->code && $request->name != $discount->name)
+        {
+            $validated = $request->validate([
+                'name' => 'required|unique:discount_codemax:255',
+                'description' => 'required|string',
+                'code' => 'required|string|unique:discount_code|max:255',
+                'discount' => 'required|integer',
+            ]);
+        }
         $discount->name = $request->name;
         $discount->description = $request->description;
         $discount->discount = $request->discount;
@@ -75,6 +111,8 @@ class DiscountController extends Controller
     }
     public function store(Request $request){
         
+        
+
         $request['start_day'] = Carbon::createFromFormat('d/m/Y', $request->start_day)->format('Y-m-d');
         $request['end_day'] = Carbon::createFromFormat('d/m/Y', $request->end_day)->format('Y-m-d');
 
@@ -95,18 +133,13 @@ class DiscountController extends Controller
                 
             }
         }
-
-        $coded = DiscountCode::all();
+        $validated = $request->validate([
+            'name' => 'required|unique:discount_code|max:255',
+            'description' => 'required|string',
+            'code' => 'required|string|unique:discount_code|max:255',
+            'discount' => 'required|integer',
+        ]);
         
-        foreach ($coded as $code){
-            
-            if($code->code == $request->code) {
-                return redirect()->back()->with('errorcode', 'Mã code đã tồn tại');
-                break;
-
-            }
-        }
-
 
         $discount = new DiscountCode([
             'name' => $request->name,

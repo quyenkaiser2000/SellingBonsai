@@ -15,20 +15,20 @@ class KyguiController extends Controller
 {
     public function show(){
 
-        $products = Product::all()->where('user_id','<>',null);
+        $products = Product::all()->where('user_id','<>',null)->where('status_delete', '=', 1);
         
         return view('dashboard.kygui.index',compact('products'));
     }
 
 
     public function active(){
-        $products = Product::all()->where('status','1')->where('user_id','<>',null);
+        $products = Product::all()->where('status','1')->where('user_id','<>',null)->where('status_delete', '=', 1);
 
         
         return view('dashboard.kygui.active',compact('products'));
     }
     public function browse(){
-        $products = Product::all()->where('status','0');
+        $products = Product::all()->where('status','0')->where('status_delete', '=', 1);
 
         
         return view('dashboard.kygui.browse',compact('products'));

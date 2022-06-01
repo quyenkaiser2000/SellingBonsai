@@ -19,7 +19,7 @@ class ShopController extends Controller
 
         $price = $productids->price - (($productids->discount * $productids->price)/100);
         
-        $relatedproducts = Product::where('product_category_id',$productids->product_category_id)->limit(7)->get();
+        $relatedproducts = Product::where('product_category_id',$productids->product_category_id)->where('status', '=', 1)->where('status_delete', '=', 1)->limit(10)->get();
       
         $productcomments = ProductComment::where('product_id',$id)->paginate(5);
         $agvRating = 0;
@@ -53,17 +53,17 @@ class ShopController extends Controller
       $sortby = $request->sort_by ?? 1;
       $search = $request->search ?? '';
 
-      $products = Product::where('name','like','%'. $search .'%');
+      $products = Product::where('name','like','%'. $search .'%')->where('status_delete', '=', 1);
       
      
 
-      $productcategory = ProductCategory::all();
-      $productbrands = Brand::all();
-     // dd($productcategory);
+      $productcategory = ProductCategory::all()->where('status_delete', '=', 1);
+      $productbrands = Brand::all()->where('status_delete', '=', 1);
+      //  dd($productcategory);
 
       $products = $this->filter($products,$request);
       $products = $this->sortPagination($products,$sortby,$perpage);
-
+      
 
       return view('front.shopnow',compact('products','productcategory','productbrands'));
     }
@@ -74,10 +74,10 @@ class ShopController extends Controller
       $sortby = $request->sort_by ?? 1;
 
 
-      $productcategory = ProductCategory::all();
-      $productbrands = Brand::all();
+      $productcategory = ProductCategory::all()->where('status_delete', '=', 1);
+      $productbrands = Brand::all()->where('status_delete', '=', 1);
 
-      $category = ProductCategory::where('name',$categoryname)->first();
+      $category = ProductCategory::where('name',$categoryname)->where('status_delete', '=', 1)->first();
       if(count($category->products)){
         $products = $category->products->toquery();
         $products = $this->filter($products,$request);
@@ -94,9 +94,9 @@ class ShopController extends Controller
 
 
     public function brand($brandname, Request $request){
-      $products = Product::all();
-      $productcategory = ProductCategory::all();
-      $productbrands = Brand::all();
+      $products = Product::all()->where('status_delete', '=', 1);
+      $productcategory = ProductCategory::all()->where('status_delete', '=', 1);
+      $productbrands = Brand::all()->where('status_delete', '=', 1);
       
       $products = Brand::where('name',$brandname)->first()->products->toquery();
 
@@ -109,19 +109,19 @@ class ShopController extends Controller
     public function sortPagination($products,$sortby,$perpage){
       switch ($sortby){
         case 1:
-          $products = $products->orderBy('id');
+          $products = $products->where('status_delete', '=', 1)->orderBy('id');
           break;
         case 2:
-          $products = $products->orderBy('name');
+          $products = $products->where('status_delete', '=', 1)->orderBy('name');
           break;
         case 3:
-          $products = $products->orderBy('price');
+          $products = $products->where('status_delete', '=', 1)->orderBy('price');
           break;
         case 4:
-          $products = $products->orderByDesc('price');
+          $products = $products->where('status_delete', '=', 1)->orderByDesc('price');
           break;
         default:
-          $products = $products->orderBy('id');
+          $products = $products->where('status_delete', '=', 1)->orderBy('id');
       }
 
 

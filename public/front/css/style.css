@@ -3106,7 +3106,7 @@ select
     z-index: 999;
     right: 30px;
     bottom: 80px;
-
+    top: 80%;
     display: none;
 
     width: 42px;
@@ -6608,6 +6608,7 @@ select
     opacity: 0;
     border-radius: 25px;
     background: #fff;
+    display: none;
 }
 .hover-icons ul li a
 {
@@ -11429,3 +11430,90 @@ h3.comment-counter
   }
   /* - - - - - LIKE */
   
+.discounts{
+    position: relative;
+}
+
+.form-discount {
+    background: #FFFFFF;
+    box-shadow: 2px 2px 15px rgba(70, 64, 67, 0.1);
+    border-radius: 12px;
+    display:flex;
+    justify-content:space-between;
+    margin-bottom: 50px;
+}
+.form-discount img{
+    width:150px;
+    height:auto;
+    position: absolute;
+    top: -23px;
+    left: 0px;
+}
+.form-discount .left label{
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 36px;
+    color: white;
+    margin-top: 35px;
+    
+}
+.form-discount .left{
+    padding:20px 20px;
+    background:#35C75A;
+    box-shadow: 2px 2px 15px #35c75aba;
+
+
+}
+.form-discount .right{
+    padding:20px 20px;
+}
+.form-discount .right h4{
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 36px;
+    color:#35C75A;
+}
+.form-discount .right span{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 36px;
+}
+.form-discount .right .discount_code{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 36px;
+}
+@media only screen and (max-width: 767px) {
+    .form-discount .left label {
+        font-weight: 800;
+        font-size: 40px;
+        line-height: 36px;
+        color: white;
+        margin-top: 45px;
+        margin-left: 60px;
+    }
+    .form-discount .right h4{
+        font-style: normal;
+        font-weight: 800;
+        font-size: 25px;
+        line-height: 36px;
+        color:#35C75A;
+    }
+    .form-discount .right span{
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 36px;
+    }
+    .form-discount .right .discount_code{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 36px;
+    }
+  }
+
+

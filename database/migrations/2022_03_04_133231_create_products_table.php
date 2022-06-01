@@ -27,6 +27,7 @@ class CreateProductsTable extends Migration
 
             $table->integer('user_id')->unsigned()->nullable();
             $table->string('status')->nullable();
+            $table->string('status_delete')->default(1)->nullable();
             $table->timestamps();
         });
     }

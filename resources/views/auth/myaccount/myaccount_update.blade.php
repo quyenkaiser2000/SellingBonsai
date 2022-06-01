@@ -50,7 +50,7 @@
 
                                 <a href="user/myaccount/changepas" ><i class="fa fa-user"></i>Change Password</a>
 
-                                <a href="login-register.html"><i class="fa fa-sign-out"></i> Logout</a>
+                                
                             </div>
                         </div>
                         <!-- My Account Tab Menu End -->
@@ -63,9 +63,7 @@
                                     <div class="myaccount-content">
                                         <h3>Dashboard</h3>
 
-                                        <div class="welcome mb-20">
-                                            <p>Hello, <strong>Alex Tuntuni</strong> (If Not <strong>Tuntuni !</strong><a href="login-register.html" class="logout"> Logout</a>)</p>
-                                        </div>
+                                       
 
                                         <p class="mb-0">From your account dashboard. you can easily check &amp; view your
                                             recent orders, manage your shipping and billing addresses and edit your
@@ -155,19 +153,35 @@
                                                         </div>
                                                     </div>
                                                     
-                                                    <div class="form-group row">
-                                                        <label for="email" class="col-sm-3 text-right control-label col-form-label">Email</label>
-                                                        <div class="col-sm-9">
-                                                            <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$user->email}}" required autocomplete="email" autofocus>
+                                                    @if(Auth::user()->email != null)
+                                                        <div class="form-group row">
+                                                            <label for="email" class="col-sm-3 text-right control-label col-form-label">Email</label>
+                                                            <div class="col-sm-9">
+                                                                <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$user->email}}" required autocomplete="email" autofocus disabled>
 
-                                                                @error('email')
-                                                                    <span class="invalid-feedback" role="alert">
-                                                                        <strong>{{ $message }}</strong>
-                                                                    </span>
-                                                                @enderror
+                                                                    @error('email')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                            </div>
+                                                            
                                                         </div>
-                                                        
-                                                    </div>
+                                                    @else
+                                                        <div class="form-group row">
+                                                            <label for="email" class="col-sm-3 text-right control-label col-form-label">Email</label>
+                                                            <div class="col-sm-9">
+                                                                <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$user->email}}" required autocomplete="email" autofocus>
+
+                                                                    @error('email')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    @endif
                                                     
                                                     <div class="form-group row">
                                                         <label for="address " class="col-sm-3 text-right control-label col-form-label">Địa chỉ</label>

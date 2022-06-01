@@ -56,8 +56,8 @@
                                         @foreach ($orderdetails as $orderdetail)
                                             
                                             <tr>
-                                                <td class="pro-thumbnail"><a href="single-product.html"><img src="{{asset('/storage/Linkimageproduct/'.$orderdetail->product->productImage[0]->img)}}" class="img-fluid" alt="Product"></a></td>
-                                                <td class="pro-title"><a href="single-product.html">{{$orderdetail->product->name}}</a></td>
+                                                <td class="pro-thumbnail"><a href="/shop/Product/{{$orderdetail->product->id}}"><img src="{{asset('/storage/Linkimageproduct/'.$orderdetail->product->productImage[0]->img)}}" class="img-fluid" alt="Product"></a></td>
+                                                <td class="pro-title"><a href="/shop/Product/{{$orderdetail->product->id}}">{{$orderdetail->product->name}}</a></td>
                                                 <td class="pro-price"><span>{{number_format($orderdetail->amount)}} VNĐ</span></td>
                                                 <td class="pro-quantity"><div class="pro-qty"><input type="text" value="{{$orderdetail->qty}}" data-id="{{$orderdetail->id}}"></div></td> 
                                                 <td class="pro-subtotal"><span>{{number_format($orderdetail->amount * $orderdetail->qty)}} VNĐ</span></td> 

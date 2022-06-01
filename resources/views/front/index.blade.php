@@ -34,10 +34,10 @@
                             <div class="single-slider-item">
                             <div class="hero-slider-item-wrapper hero-slider-bg-1" style="background-image: url('storage/Linkimageproduct/banner-index2.jpg');">
                                     <div class="hero-slider-content pl-60 pl-sm-30">
-                                        <p class="slider-title slider-title--small">The Stone Series</p>
-                                        <p class="slider-title slider-title--big-bold">A Great Addition</p>
-                                        <p class="slider-title slider-title--big-light">To Your Home</p>
-                                        <a class="theme-button hero-slider-button" href="{{'shop/listproduct'}}">Shopping Now</a>
+                                        <p class="slider-title slider-title--small">Những Loại Cây</p>
+                                        <p class="slider-title slider-title--big-bold">Sự Tươi Mát</p>
+                                        <p class="slider-title slider-title--big-light">Cho Ngôi Nhà</p>
+                                        <a class="theme-button hero-slider-button" href="{{'shop/listproduct'}}">Mua Ngay</a>
                                     </div>
                                 </div>
                             </div>
@@ -49,10 +49,10 @@
                             <div class="single-slider-item">
                                 <div class="hero-slider-item-wrapper hero-slider-bg-2" style="background-image: url('storage/Linkimageproduct/banner-index.jpg');">
                                     <div class="hero-slider-content pl-60 pl-sm-30">
-                                        <p class="slider-title slider-title--small">Workshops @Alula</p>
-                                        <p class="slider-title slider-title--big-bold">Plant Make</p>
-                                        <p class="slider-title slider-title--big-light">People Happy</p>
-                                        <a class="theme-button hero-slider-button" href="{{'shop/listproduct'}}">Shopping Now</a>
+                                        <p class="slider-title slider-title--small">Shop Alula</p>
+                                        <p class="slider-title slider-title--big-bold">Chợ Thực Vật</p>
+                                        <p class="slider-title slider-title--big-light">Ngôi Nhà Xanh</p>
+                                        <a class="theme-button hero-slider-button" href="{{'shop/listproduct'}}">Mua Ngay</a>
                                     </div>
                                 </div>
                             </div>
@@ -64,10 +64,10 @@
                             <div class="single-slider-item">
                                 <div class="hero-slider-item-wrapper hero-slider-bg-3" style="background-image: url('storage/Linkimageproduct/banner-index1.jpg');">
                                     <div class="hero-slider-content pl-60 pl-sm-30">
-                                        <p class="slider-title slider-title--small">Thursday Through Saturday</p>
-                                        <p class="slider-title slider-title--big-bold">Plant Big Sale</p>
-                                        <p class="slider-title slider-title--big-light">75% Off</p>
-                                        <a class="theme-button hero-slider-button" href="{{'shop/listproduct'}}">Shopping Now</a>
+                                        <p class="slider-title slider-title--small">Mọi Ngày</p>
+                                        <p class="slider-title slider-title--big-bold">Giảm Giá Lớn</p>
+                                        <p class="slider-title slider-title--big-light">Trên 10%</p>
+                                        <a class="theme-button hero-slider-button" href="{{'shop/listproduct'}}">Mua Ngay</a>
                                     </div>
                                 </div>
                             </div>
@@ -544,129 +544,7 @@
     <!--====================  End of category area  ====================-->
     <!--====================  blog post slider area ====================-->
     
-    <div class="blog-post-slider-area mb-40">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <!--=======  section title  =======-->
-                    
-                    <div class="section-title mb-20">
-                        <h2>Latest Blogs</h2>
-                    </div>
-                    
-                    <!--=======  End of section title  =======-->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <!--=======  blog post slider wrapper  =======-->
-                    
-                    <div class="blog-post-slider-wrapper">
-                        <div class="ht-slick-slider"
-                        data-slick-setting='{
-                            "slidesToShow": 3,
-                            "slidesToScroll": 1,
-                            "dots": false,
-                            "autoplay": false,
-                            "autoplaySpeed": 5000,
-                            "speed": 1000,
-                            "arrows": true,
-                            "prevArrow": {"buttonClass": "slick-prev", "iconClass": "ion-ios-arrow-left" },
-                            "nextArrow": {"buttonClass": "slick-next", "iconClass": "ion-ios-arrow-right" }
-                        }'
-                        data-slick-responsive='[
-                            {"breakpoint":1501, "settings": {"slidesToShow": 3} },
-                            {"breakpoint":1199, "settings": {"slidesToShow": 3} },
-                            {"breakpoint":991, "settings": {"slidesToShow": 2} },
-                            {"breakpoint":767, "settings": {"slidesToShow": 2, "arrows": false} },
-                            {"breakpoint":575, "settings": {"slidesToShow": 1, "arrows": false} },
-                            {"breakpoint":479, "settings": {"slidesToShow": 1, "arrows": false} }
-                        ]'
-                        >
-
-                            <!--=======  single blog post  =======-->
-                            
-                            <div class="slider-single-post">
-                                <div class="slider-single-post__image">
-                                    <a href="blog-post-left-sidebar.html">
-                                        <img src="front/img/blog/slider1.jpg" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                                <div class="slider-single-post__content">
-                                    <h3 class="post-title"><a href="blog-post-left-sidebar.html">Bromeliad Mount Care: How to Water and Care for Mounted Bromeliads</a></h3>
-                                    <div class="post-meta">
-                                        <p class="author-name">by <span>HasTech</span></p>
-                                        <p class="post-date">30 Oct, 2019</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!--=======  End of single blog post  =======-->
-
-                            <!--=======  single blog post  =======-->
-                            
-                            <div class="slider-single-post">
-                                <div class="slider-single-post__image">
-                                    <a href="blog-post-left-sidebar.html">
-                                        <img src="front/img/blog/slider2.jpg" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                                <div class="slider-single-post__content">
-                                    <h3 class="post-title"><a href="blog-post-left-sidebar.html">Mounted Tropical Plant Care: How to Grow Epiphytic Tropical Plants</a></h3>
-                                    <div class="post-meta">
-                                        <p class="author-name">by <span>HasTech</span></p>
-                                        <p class="post-date">30 Oct, 2019</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!--=======  End of single blog post  =======-->
-
-                            <!--=======  single blog post  =======-->
-                            
-                            <div class="slider-single-post">
-                                <div class="slider-single-post__image">
-                                    <a href="blog-post-left-sidebar.html">
-                                        <img src="front/img/blog/slider3.jpg" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                                <div class="slider-single-post__content">
-                                    <h3 class="post-title"><a href="blog-post-left-sidebar.html">Plantlet Care: How To Pot Up and Care For Juvenile Houseplants</a></h3>
-                                    <div class="post-meta">
-                                        <p class="author-name">by <span>HasTech</span></p>
-                                        <p class="post-date">30 Oct, 2019</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!--=======  End of single blog post  =======-->
-
-                            <!--=======  single blog post  =======-->
-                            
-                            <div class="slider-single-post">
-                                <div class="slider-single-post__image">
-                                    <a href="blog-post-left-sidebar.html">
-                                        <img src="front/img/blog/slider4.jpg" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                                <div class="slider-single-post__content">
-                                    <h3 class="post-title"><a href="blog-post-left-sidebar.html">The Definitive List of Pumpkin Spice Everything fotr 2019</a></h3>
-                                    <div class="post-meta">
-                                        <p class="author-name">by <span>HasTech</span></p>
-                                        <p class="post-date">30 Oct, 2019</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!--=======  End of single blog post  =======-->
-                        </div>
-                    </div>
-                    
-                    <!--=======  End of blog post slider wrapper  =======-->
-                </div>
-            </div>
-        </div>
-    </div>
+    
     
     <!--====================  End of blog post slider area  ====================-->
     <!--====================  brand logo slider area ====================-->
@@ -780,13 +658,12 @@
                     
                     <div class="newsletter-wrapper newsletter-bg-1" style="background-image: url('/storage/Linkimageproduct/newsletter1.jpg');">
                         <div class="newsletter-wrapper__text">
-                            <h5>Subscribe newsletter to get updated</h5>
-                            <p>We’ll never share your email address with a third-party.</p>
+                            <h5>TẠO TÀI KHOẢN NHANH THÔI NÀO !</h5>
+                            <p>...Nhận Ngay VOUCHER từ chúng tôi.</p>
                         </div>
                         <div class="newsletter-wrapper__form">
                             <form id="mc-form" class="mc-form">
-                                <input type="email" placeholder="Enter your email address here ...">
-                                <button type="submit">Subscribe</button>
+                                    <button type="button" onclick="window.location='/login'">ĐĂNG KÝ</button>
                             </form>
 
                             <!-- mailchimp-alerts Start -->

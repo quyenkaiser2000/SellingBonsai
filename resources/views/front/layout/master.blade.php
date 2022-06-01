@@ -185,7 +185,7 @@
 
                                         <div class="text">
                                             <span>Customer Support</span>
-                                            <p>(08) 12 345 789</p>
+                                            <p>(+84) 383 109 155 </p>
                                         </div>
                                     </div>
                                     
@@ -227,22 +227,22 @@
                                                 <table class="table mb-25">
                                                     <tbody>
                                                         <tr>
-                                                            <td class="text-left">Sub-Total :</td>
+                                                            <td class="text-left">Tổng phụ :</td>
                                                             <td class="text-right">{{Cart::subtotal()}} VNĐ</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="text-left">Shipping Cost :</td>
+                                                            <td class="text-left">Giá vận chuyển :</td>
                                                             <td class="text-right">00.00 VNĐ</td>
                                                         </tr>
                                                         <tr>
                                                         
 
                                                            
-                                                            <td class="text-left">Discount Code :</td>
+                                                            <td class="text-left">Mã giảm giá :</td>
                                                             <td class="text-right">00.00 VNĐ</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="text-left">Total :</td>
+                                                            <td class="text-left">Tổng cộng :</td>
                                                             <td class="text-right">{{Cart::total()}} VNĐ</td>
                                                         </tr>
                                                     </tbody>
@@ -286,20 +286,22 @@
                                     <li class=" {{(request()->segment(1) == '') ? 'active' : ''}}"><a href="{{''}}">HOME</a>
                                         
                                     </li>
-                                    
-                                    <li class=" {{(request()->segment(1) == 'pages') ? 'active' : ''}}"><a href="#">PAGES</a>
-                                        
-                                    </li>
 
                                     <li class=" {{(request()->segment(1) == 'shop') ? 'active' : ''}}"><a href="{{'shop/listproduct'}}">SHOP</a>
                                         
                                     </li>
 
-                                    <li class=" {{(request()->segment(1) == 'blog') ? 'active' : ''}}"><a href="{{'user/livestream'}}">LIVE</a>
+                                    <li class=" {{(request()->segment(1) == 'livestream') ? 'active' : ''}}"><a href="{{'user/livestream'}}">LIVE</a>
                                         
                                     </li>
 
-                                    <li><a href="contact.html">CONTACT</a></li>
+                                    <li class=" {{(request()->segment(1) == 'contact') ? 'active' : ''}}"><a href="{{'/contact'}}">CONTACT</a>
+
+                                    </li>
+
+                                    <li class=" {{(request()->segment(1) == 'discount') ? 'active' : ''}}"><a href="{{'/discount'}}">DISCOUNT</a>
+                                    </li>
+
                                 </ul>
                             </nav>
                         
@@ -341,13 +343,13 @@
                                     </div>
             
                                     <div class="footer-text-block mb-10">
-                                        <h5 class="footer-text-block__title">Address</h5>
-                                        <p class="footer-text-block__content">4710-4890 Breckinridge St, UK Burlington, VT 05401</p>
+                                        <h5 class="footer-text-block__title">Địa chỉ</h5>
+                                        <p class="footer-text-block__content">475A Điện Biên Phủ, Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh</p>
                                     </div>
             
                                     <div class="footer-text-block mb-10">
-                                        <h5 class="footer-text-block__title">Need Help?</h5>
-                                        <p class="footer-text-block__content">Call: 1-800-345-6789</p>
+                                        <h5 class="footer-text-block__title">Bạn cần giúp đỡ?</h5>
+                                        <p class="footer-text-block__content">Gọi: (+84) 383 109 155</p>
                                     </div>
             
                                     <div class="footer-social-icon-block">
@@ -368,7 +370,7 @@
                                 <!--=======  single footer widget  =======-->
                                 
                                 <div class="single-footer-widget">
-                                    <h4 class="footer-widget-title"><a href="#">Follow on instagram</a></h4>
+                                    <h4 class="footer-widget-title"><a href="https://www.instagram.com/">Follow on instagram</a></h4>
             
                                     <div class="instagram-image-slider-wrapper">
                                         <div class="ht-slick-slider"
@@ -394,84 +396,84 @@
                                             <!--=======  single instagram image  =======-->
                                             
                                             <div class="single-instagram-image">
-                                                <a href="#"><img src="/storage/Linkimageproduct/a1.jpg" class="img-fluid" alt=""></a>
+                                                <a href="https://www.instagram.com/"><img src="/storage/Linkimageproduct/a1.jpg" class="img-fluid" alt=""></a>
                                             </div>
                                             
                                             <!--=======  End of single instagram image  =======-->
                                             <!--=======  single instagram image  =======-->
                                             
                                             <div class="single-instagram-image">
-                                                <a href="#"><img src="/storage/Linkimageproduct/a2.jpg" class="img-fluid" alt=""></a>
+                                                <a href="https://www.instagram.com/"><img src="/storage/Linkimageproduct/a2.jpg" class="img-fluid" alt=""></a>
                                             </div>
                                             
                                             <!--=======  End of single instagram image  =======-->
                                             <!--=======  single instagram image  =======-->
                                             
                                             <div class="single-instagram-image">
-                                                <a href="#"><img src="/storage/Linkimageproduct/a3.jpg" class="img-fluid" alt=""></a>
+                                                <a href="https://www.instagram.com/"><img src="/storage/Linkimageproduct/a3.jpg" class="img-fluid" alt=""></a>
                                             </div>
                                             
                                             <!--=======  End of single instagram image  =======-->
                                             <!--=======  single instagram image  =======-->
                                             
                                             <div class="single-instagram-image">
-                                                <a href="#"><img src="/storage/Linkimageproduct/a4.jpg" class="img-fluid" alt=""></a>
+                                                <a href="https://www.instagram.com/"><img src="/storage/Linkimageproduct/a4.jpg" class="img-fluid" alt=""></a>
                                             </div>
                                             
                                             <!--=======  End of single instagram image  =======-->
                                             <!--=======  single instagram image  =======-->
                                             
                                             <div class="single-instagram-image">
-                                                <a href="#"><img src="/storage/Linkimageproduct/a5.jpg" class="img-fluid" alt=""></a>
+                                                <a href="https://www.instagram.com/"><img src="/storage/Linkimageproduct/a5.jpg" class="img-fluid" alt=""></a>
                                             </div>
                                             
                                             <!--=======  End of single instagram image  =======-->
                                             <!--=======  single instagram image  =======-->
                                             
                                             <div class="single-instagram-image">
-                                                <a href="#"><img src="/storage/Linkimageproduct/a6.jpg" class="img-fluid" alt=""></a>
+                                                <a href="https://www.instagram.com/"><img src="/storage/Linkimageproduct/a6.jpg" class="img-fluid" alt=""></a>
                                             </div>
                                             
                                             <!--=======  End of single instagram image  =======-->
                                             <!--=======  single instagram image  =======-->
                                             
                                             <div class="single-instagram-image">
-                                                <a href="#"><img src="/storage/Linkimageproduct/a7.jpg" class="img-fluid" alt=""></a>
+                                                <a href="https://www.instagram.com/"><img src="/storage/Linkimageproduct/a7.jpg" class="img-fluid" alt=""></a>
                                             </div>
                                             
                                             <!--=======  End of single instagram image  =======-->
                                             <!--=======  single instagram image  =======-->
                                             
                                             <div class="single-instagram-image">
-                                                <a href="#"><img src="/storage/Linkimageproduct/a8.jpg" class="img-fluid" alt=""></a>
+                                                <a href="https://www.instagram.com/"><img src="/storage/Linkimageproduct/a8.jpg" class="img-fluid" alt=""></a>
                                             </div>
                                             
                                             <!--=======  End of single instagram image  =======-->
                                             <!--=======  single instagram image  =======-->
                                             
                                             <div class="single-instagram-image">
-                                                <a href="#"><img src="front/img/instagram/a1.jpg" class="img-fluid" alt=""></a>
+                                                <a href="https://www.instagram.com/"><img src="front/img/instagram/a1.jpg" class="img-fluid" alt=""></a>
                                             </div>
                                             
                                             <!--=======  End of single instagram image  =======-->
                                             <!--=======  single instagram image  =======-->
                                             
                                             <div class="single-instagram-image">
-                                                <a href="#"><img src="front/img/instagram/a2.jpg" class="img-fluid" alt=""></a>
+                                                <a href="https://www.instagram.com/"><img src="front/img/instagram/a2.jpg" class="img-fluid" alt=""></a>
                                             </div>
                                             
                                             <!--=======  End of single instagram image  =======-->
                                             <!--=======  single instagram image  =======-->
                                             
                                             <div class="single-instagram-image">
-                                                <a href="#"><img src="front/img/instagram/a3.jpg" class="img-fluid" alt=""></a>
+                                                <a href="https://www.instagram.com/"><img src="front/img/instagram/a3.jpg" class="img-fluid" alt=""></a>
                                             </div>
                                             
                                             <!--=======  End of single instagram image  =======-->
                                             <!--=======  single instagram image  =======-->
                                             
                                             <div class="single-instagram-image">
-                                                <a href="#"><img src="front/img/instagram/a4.jpg" class="img-fluid" alt=""></a>
+                                                <a href="https://www.instagram.com/"><img src="front/img/instagram/a4.jpg" class="img-fluid" alt=""></a>
                                             </div>
                                             
                                             <!--=======  End of single instagram image  =======-->
@@ -486,21 +488,17 @@
                                 <!--=======  single footer widget  =======-->
                                 
                                 <div class="single-footer-widget">
-                                    <h5 class="montserrat-footer-widget-title">Information</h5>
+                                    <h5 class="montserrat-footer-widget-title">Thông tin</h5>
             
                                     <div class="footer-navigation">
                                         <nav>
                                             <ul>
-                                                <li><a href="#">About Us</a></li>
-                                                <li><a href="#">Privacy Policy</a></li>
-                                                <li><a href="#">Contact Us</a></li>
-                                                <li><a href="#">Gift Certificates</a></li>
-                                                <li><a href="#">Specials</a></li>
-                                                <li><a href="#">Delivery Information</a></li>
-                                                <li><a href="#">Terms & Conditions</a></li>
-                                                <li><a href="#">Brands</a></li>
-                                                <li><a href="#">Affiliate</a></li>
-                                                <li><a href="#">Site Map</a></li>
+                                                <li><a href="/">Home</a></li>
+                                                <li><a href="/shop/listproduct">Shop</a></li>
+                                                <li><a href="/user/livestream">Live</a></li>
+                                                <li><a href="/contact">Contact</a></li>
+                                                <li><a href="/discount">Discount</a></li>
+                                                
                                             </ul>
                                         </nav>
                                     </div>
@@ -519,7 +517,7 @@
                         <div class="row align-items-center">
                             <div class="col-md-6 text-center text-md-left mb-sm-15">
                                 <div class="copyright-text">
-                                    <p>Copyright © 2019 <a href="#">Alula</a>. All Right Reserved.</p>
+                                    <p>Copyright © 2022 <a href="#">Alula</a>. All Right Reserved.</p>
                                 </div>
                             </div>
                             <div class="col-md-6 text-center text-md-right">

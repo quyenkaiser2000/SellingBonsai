@@ -10,7 +10,8 @@ use App\Models\ProductCategory;
 use App\Models\ProductImage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Contracts\Validation\Double;
 class ProductController extends Controller
 {
     /**
@@ -20,7 +21,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all()->where('status','1');
+        $products = Product::all()->where('status','1')->where('user_id','==',null)->where('status_delete','=','1');
         
         //dd($products);
         return view('dashboard.product',compact('products'));
@@ -33,8 +34,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $brands = Brand::all();
-        $productcategories = ProductCategory::all();
+        $brands = Brand::all()->where('status_delete', '==', '1');
+        $productcategories = ProductCategory::all()->where('status_delete', '==', '1');
         
         //dd($brands);
         return view('dashboard.crudproduct.createproduct',compact('brands','productcategories'));
@@ -49,9 +50,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        
         $input = $request->all();
         $product = Product::all();
        
+
+        $validated = $request->validate([
+            'name' => 'required|unique:products|max:255',
+            'description' => 'required|string',
+            'price' => 'required|integer',
+            'qty' => 'required|integer',
+            'discount' => 'required|integer',
+        ]);
 
        // dd($input);
         $brand_id =  $input['brand_id'];
@@ -66,18 +76,7 @@ class ProductController extends Controller
         //dd($product_category_id2['id']);
         $input['product_category_id'] = $product_category_id2['id'];
         
-       /* $product = new Product;
        
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->price = $request->price;
-        $product->qty = $request->qty;
-        $product->discount = $request->discount;
-        $product->brand_id = $input['brand_id'];
-        $product->product_category_id = $input['product_category_id'];
-
-        $product->save();*/ 
-        
         $product = new Product([
             'brand_id' => $input['brand_id'],
             'product_category_id' => $input['product_category_id'],
@@ -90,10 +89,6 @@ class ProductController extends Controller
            
         ]);
         $product->save();
-        //dd($input['path']);
-       
-        //$product::create();
-
 
         if($request->hasFile('img'))
         {
@@ -281,8 +276,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {   
-        $brands = Brand::all();
-        $productcategories = ProductCategory::all();
+        
+        $brands = Brand::all()->where('status_delete', '==', '1');
+        $productcategories = ProductCategory::all()->where('status_delete', '==', '1');
         $product = Product::findOrFail($id);
        // dd($products);
         //$product1 = $product['id'];
@@ -311,11 +307,30 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        
         
         $input = $request->all();
       // dd($input);
         $product  = Product::find($id);
-        
+        if($request->name != $product->name){
+            $validated = $request->validate([
+                'name' => 'required|unique:products|max:255',
+                'description' => 'required|string',
+                'price' => 'required|integer',
+                'qty' => 'required|integer',
+                'discount' => 'required|integer',
+            ]);
+        }
+        else{
+            $validated = $request->validate([
+                'name' => 'required|max:255',
+                'description' => 'required|string',
+                'price' => 'required|integer',
+                'qty' => 'required|integer',
+                'discount' => 'required|integer',
+            ]); 
+        }
         if($input['brand_id'] != null){
             $brand_id =  $input['brand_id'];
             $brand_id1 = Brand::select('id')->where('name', $brand_id)->get();
@@ -522,5 +537,11 @@ class ProductController extends Controller
         $productimg->img = null;
         $productimg->save();
         return redirect()->route('product');
+    }
+    public function delete($id){
+        $product= Product::findOrFail($id);
+        $product->status_delete = '0';
+        $product->save();
+        return redirect()->back();
     }
 }

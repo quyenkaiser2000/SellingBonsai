@@ -11,8 +11,8 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                    <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Giảm giá</li>
                                 </ol>
                             </nav>
                         </div>
@@ -35,7 +35,7 @@
                         
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Quản lý sản phẩm</h5>
+                                <h5 class="card-title">Quản lý mã giảm giá</h5>
                                 <button type="submit" class="btn btn-primary"><a href="{{'/admin/dashboard/discount/Create'}}" style="color:white";>Create New</a></button>
                                
                                 <div class="table-responsive">
@@ -48,6 +48,7 @@
                                                 <th>Discount</th>
                                                 <th>Ngày bắt đầu</th>
                                                 <th>Ngày kết thúc</th>
+                                                <th>Change</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -62,7 +63,7 @@
                                                         <td>
                                                                 <button type="submit" class="btn btn-success"> <a href="discount/{{ $discount->id }}" style="color:white;">Detail</a></button>
                                                                 <button type="submit" class="btn btn-success"> <a href="discount/{{ $discount->id }}" style="color:white;">Edit</a></button>
-                                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                                
                                                         </td>
                                                     </tr>
                                             @endforeach
@@ -74,6 +75,8 @@
                                                 <th>Discount</th>
                                                 <th>Ngày bắt đầu</th>
                                                 <th>Ngày kết thúc</th>
+                                                <th>Change</th>
+
                                             </tr>
                                         </tfoot>
                                     </table>

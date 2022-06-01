@@ -26,7 +26,7 @@ Route::get('/login-register', function () {
 });*/
 Route::group(['prefix' => 'admin','middleware' => ['auth','role:admin']],function(){
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'indexAdmin'])->name('adminHome');
-
+    Route::get('/dashboard',[App\Http\Controllers\Dashboard\ChartJSController::class,'index']);
     Route::get('/dashboard/Product', [App\Http\Controllers\Dashboard\ProductController::class, 'index'])->name('product');
 
     Route::get('/dashboard/Brand', [App\Http\Controllers\Dashboard\BrandController::class, 'index'])->name('brand');
@@ -46,6 +46,8 @@ Route::group(['prefix' => 'admin','middleware' => ['auth','role:admin']],functio
     Route::get('/dashboard/Brand/{id}', [App\Http\Controllers\Dashboard\BrandController::class, 'show']);
     Route::get('/dashboard/Brand/Update/{id}', [App\Http\Controllers\Dashboard\BrandController::class, 'edit']);
     Route::post('/dashboard/Brand/Update/{id}', [App\Http\Controllers\Dashboard\BrandController::class, 'update']);
+    Route::get('/dashboard/Brand/Delete/{id}', [App\Http\Controllers\Dashboard\BrandController::class, 'delete']);
+
 
     //crud productcategory
     Route::get('/dashboard/ProductCategory/Create', [App\Http\Controllers\Dashboard\ProductCategoryController::class, 'create'])->name('createProductCategory');
@@ -54,6 +56,8 @@ Route::group(['prefix' => 'admin','middleware' => ['auth','role:admin']],functio
     Route::get('/dashboard/ProductCategory/Update/{id}', [App\Http\Controllers\Dashboard\ProductCategoryController::class, 'edit']);
     Route::post('/dashboard/ProductCategory/Update/{id}', [App\Http\Controllers\Dashboard\ProductCategoryController::class, 'update']);
     Route::post('/dashboard/ProductCategory/DeleteImg',[App\Http\Controllers\Dashboard\ProductCategoryController::class, 'deleteimg'])->name('delete-img-category');
+    Route::get('/dashboard/ProductCategory/Delete/{id}', [App\Http\Controllers\Dashboard\ProductCategoryController::class, 'delete']);
+
 
     //crud product
     Route::get('/dashboard/Product/Create', [App\Http\Controllers\Dashboard\ProductController::class, 'create'])->name('createProduct');
@@ -62,6 +66,8 @@ Route::group(['prefix' => 'admin','middleware' => ['auth','role:admin']],functio
     Route::get('/dashboard/Product/Update/{id}', [App\Http\Controllers\Dashboard\ProductController::class, 'edit'])->name('updateproduct');
     Route::post('/dashboard/Product/Update/{id}', [App\Http\Controllers\Dashboard\ProductController::class, 'update']);
     Route::post('/dashboard/Product/DeleteImg',[App\Http\Controllers\Dashboard\ProductController::class, 'deleteimg'])->name('delete-img');
+    Route::get('/dashboard/Product/Delete/{id}', [App\Http\Controllers\Dashboard\ProductController::class, 'delete']);
+
 
     Route::get('/dashboard/kygui', [App\Http\Controllers\Dashboard\KyguiController::class, 'show'])->name('kygui');
     Route::get('/dashboard/kygui/active', [App\Http\Controllers\Dashboard\KyguiController::class, 'active']);
@@ -87,10 +93,14 @@ Route::group(['prefix' => 'admin','middleware' => ['auth','role:admin']],functio
 
     Route::get('/dashboard/order/delete/{id}',[App\Http\Controllers\Dashboard\OrderController::class,'delete']);
 
-    Route::get('/dashboard/chart_js',[App\Http\Controllers\Dashboard\ChartJSController::class,'index']);
+    
 
     Route::get('/livestream',[App\Http\Controllers\Dashboard\LiveStreamController::class,'index']);
     Route::get('/livestream/room=admin',[App\Http\Controllers\Dashboard\LiveStreamController::class,'joinlive']);
+
+
+    Route::get('/dashboard/contact',[App\Http\Controllers\Dashboard\ContactController::class,'index']);
+    Route::get('/dashboard/contact/detail/{id}',[App\Http\Controllers\Dashboard\ContactController::class,'detail']);
 
 
 });
@@ -133,7 +143,8 @@ Route::group(['prefix' => 'user','middleware' => ['auth','role:user']],function(
     Route::get('kygui/delete/{id}', [App\Http\Controllers\Auth\MyAccount\KyguiController::class, 'delete']);
 
 
-    
+    Route::get('kygui/order', [App\Http\Controllers\Auth\MyAccount\KyguiController::class, 'index_order']);
+    Route::get('kygui/order/{id}', [App\Http\Controllers\Auth\MyAccount\KyguiController::class, 'detail_order']);
 
 
 });
@@ -163,9 +174,21 @@ Route::group(['prefix' => 'cart','middleware' => ['auth','role:user']],function(
 Route::group(['prefix' => 'checkout','middleware' => ['auth','role:user']],function(){ 
     Route::get('/', [App\Http\Controllers\Front\CheckOutController::class, 'index']);
     Route::post('/', [App\Http\Controllers\Front\CheckOutController::class, 'addOder']);
+    Route::get('/vnPayCheck', [App\Http\Controllers\Front\CheckOutController::class, 'vnPayCheck']);
     Route::get('/result', [App\Http\Controllers\Front\CheckOutController::class, 'result']);
 
 });
+
+
+Route::group(['prefix' => 'discount','middleware' => ['auth','role:user']],function(){ 
+    Route::get('/', [App\Http\Controllers\Front\DiscountController::class, 'index']);
+    
+
+});
+
+
+Route::get('/contact', [App\Http\Controllers\Front\ContactController::class, 'index']);
+Route::post('/contact', [App\Http\Controllers\Front\ContactController::class, 'message']);
 
 
 Auth::routes();

@@ -189,113 +189,20 @@
                         @if($products != null)
 
                         @foreach($products as $product)
-                            <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-20">
-                                <!--=======  grid view product  =======-->
-                                
-                                <div class="single-slider-product grid-view-product">
-                                    <div class="single-slider-product__image">
-                                        <a href="{{'shop/Product/'.$product->id}}">
-                                            <img src="{{asset('/storage/Linkimageproduct/'.$product->ProductImage[0]->img)}}" class="img-fluid" alt="" style="width: 255px;height:255px">
-                                        </a>
-                                        @if($product->discount > 0)
-                                            <span class="discount-label discount-label--green">-{{$product->discount}}%</span>
-                                        @else
-                                            <span class="discount-label discount-label--green"></span>
-                                        @endif
-                                        <div class="hover-icons">
-                                            <ul>
-                                                <li><a data-toggle = "modal" data-target="#quick-view-modal-container" href="javascript:void(0)"><i class="icon-eye"></i></a></li>
-                                                <li><a href="javascript:void(0)"><i class="icon-heart"></i></a></li>
-                                                <li><a href="javascript:void(0)"><i class="icon-sliders"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                            @if($product->status == 1)
+                                <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-20">
+                                    <!--=======  grid view product  =======-->
                                     
-                                    <div class="single-slider-product__content">
-                                        <p class="product-title"><a href="single-product.html">{{$product->name}}</a></p>
-                                        <div class="rating">
-                                        @if(count($product->productcomments) == 0)
-                                                    <i class="ion-android-star"></i>
-                                                    <i class="ion-android-star"></i>
-                                                    <i class="ion-android-star"></i>
-                                                    <i class="ion-android-star"></i>
-                                                    <i class="ion-android-star"></i>
-
+                                    <div class="single-slider-product grid-view-product">
+                                        <div class="single-slider-product__image">
+                                            <a href="{{'shop/Product/'.$product->id}}">
+                                                <img src="{{asset('/storage/Linkimageproduct/'.$product->ProductImage[0]->img)}}" class="img-fluid" alt="" style="width: 255px;height:255px">
+                                            </a>
+                                            @if($product->discount > 0)
+                                                <span class="discount-label discount-label--green">-{{$product->discount}}%</span>
                                             @else
-                                                    @for($i=1;$i<=5;$i++) 
-                                                        @if($i <= (($product->productcomments->sum('rating'))/(count($product->productcomments))) )
-                                                            <i class="ion-android-star active"></i>
-
-                                                        @else
-
-                                                            <i class="ion-android-star"></i>
-
-                                                        @endif
-                                                    @endfor
-                                        @endif
-                                        </div>
-                                        <p class="product-price"><span class="discounted-price">{{number_format($product->price - (($product->discount * $product->price)/100))}} VNĐ</span><span class="main-price discounted">{{number_format($product->price)}}</span></p>
-
-                                        <span class="cart-icon"><a href="./cart/add/{{$product->id}}"><i class="icon-shopping-cart"></i></a></span>
-                                    </div>
-                                </div>
-                                
-                                <!--=======  End of grid view product  =======-->
-
-                                <!--=======  grid view product  =======-->
-                                
-                                <div class="single-slider-product single-slider-product--list-view list-view-product">
-                                    <div class="single-slider-product__image single-slider-product--list-view__image">
-                                        <a href="single-product.html">
-                                            <img src="{{asset('/storage/Linkimageproduct/'.$product->ProductImage[0]->img)}}" class="img-fluid" alt="" style="width: 255px;height:255px">
-                                       
-                                        </a>
-
-                                        @if($product->discount > 0)
-                                            <span class="discount-label discount-label--green">-{{$product->discount}}%</span>
-                                        @else
-                                            <span class="discount-label discount-label--green"></span>
-                                        @endif
-                                    </div>
-
-                                    <div class="single-slider-product__content  single-slider-product--list-view__content">
-                                        <div class="single-slider-product--list-view__content__details">
-                                            <p class="product-title"><a href="single-product.html">{{$product->name}}</a></p>
-                                            <div class="rating">
-                                            @if(count($product->productcomments) == 0)
-                                                    <i class="ion-android-star"></i>
-                                                    <i class="ion-android-star"></i>
-                                                    <i class="ion-android-star"></i>
-                                                    <i class="ion-android-star"></i>
-                                                    <i class="ion-android-star"></i>
-
-                                            @else
-                                                    @for($i=1;$i<=5;$i++) 
-                                                        @if($i <= (($product->productcomments->sum('rating'))/(count($product->productcomments))) )
-                                                            <i class="ion-android-star active"></i>
-
-                                                        @else
-
-                                                            <i class="ion-android-star"></i>
-
-                                                        @endif
-                                                    @endfor
+                                                <span class="discount-label discount-label--green"></span>
                                             @endif
-                                            </div>
-                                            
-                                            <p class="short-desc">{{$product->description}}.</p>
-                                        </div>
-
-                                        <div class="single-slider-product--list-view__content__actions">
-                                            <div class="availability mb-10">
-                                                <span class="availability-title">Availabe:</span>
-                                                <span class="availability-value">Out of stock</span>
-                                            </div>
-
-                                            <p class="product-price"><span class="discounted-price" style="font-size:20px;">{{number_format($product->price - (($product->discount * $product->price)/100))}} VNĐ</span><span class="main-price discounted" style="display:block;">{{number_format($product->price)}}</span></p>
-
-                                            <a href="./cart/add/{{$product->id}}" class="theme-button list-cart-button mb-10">Add to Cart</a>
-
                                             <div class="hover-icons">
                                                 <ul>
                                                     <li><a data-toggle = "modal" data-target="#quick-view-modal-container" href="javascript:void(0)"><i class="icon-eye"></i></a></li>
@@ -304,14 +211,105 @@
                                                 </ul>
                                             </div>
                                         </div>
+                                        
+                                        <div class="single-slider-product__content">
+                                            <p class="product-title"><a href="single-product.html">{{$product->name}}</a></p>
+                                            <div class="rating">
+                                            @if(count($product->productcomments) == 0)
+                                                        <i class="ion-android-star"></i>
+                                                        <i class="ion-android-star"></i>
+                                                        <i class="ion-android-star"></i>
+                                                        <i class="ion-android-star"></i>
+                                                        <i class="ion-android-star"></i>
+
+                                                @else
+                                                        @for($i=1;$i<=5;$i++) 
+                                                            @if($i <= (($product->productcomments->sum('rating'))/(count($product->productcomments))) )
+                                                                <i class="ion-android-star active"></i>
+
+                                                            @else
+
+                                                                <i class="ion-android-star"></i>
+
+                                                            @endif
+                                                        @endfor
+                                            @endif
+                                            </div>
+                                            <p class="product-price"><span class="discounted-price">{{number_format($product->price - (($product->discount * $product->price)/100))}} VNĐ</span><span class="main-price discounted">{{number_format($product->price)}}</span></p>
+
+                                            <span class="cart-icon"><a href="./cart/add/{{$product->id}}"><i class="icon-shopping-cart"></i></a></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!--=======  End of grid view product  =======-->
+
+                                    <!--=======  grid view product  =======-->
+                                    
+                                    <div class="single-slider-product single-slider-product--list-view list-view-product">
+                                        <div class="single-slider-product__image single-slider-product--list-view__image">
+                                            <a href="{{'shop/Product/'.$product->id}}">
+                                                <img src="{{asset('/storage/Linkimageproduct/'.$product->ProductImage[0]->img)}}" class="img-fluid" alt="" style="width: 255px;height:255px">
+                                        
+                                            </a>
+
+                                            @if($product->discount > 0)
+                                                <span class="discount-label discount-label--green">-{{$product->discount}}%</span>
+                                            @else
+                                                <span class="discount-label discount-label--green"></span>
+                                            @endif
+                                        </div>
+
+                                        <div class="single-slider-product__content  single-slider-product--list-view__content">
+                                            <div class="single-slider-product--list-view__content__details">
+                                                <p class="product-title"><a href="single-product.html">{{$product->name}}</a></p>
+                                                <div class="rating">
+                                                @if(count($product->productcomments) == 0)
+                                                        <i class="ion-android-star"></i>
+                                                        <i class="ion-android-star"></i>
+                                                        <i class="ion-android-star"></i>
+                                                        <i class="ion-android-star"></i>
+                                                        <i class="ion-android-star"></i>
+
+                                                @else
+                                                        @for($i=1;$i<=5;$i++) 
+                                                            @if($i <= (($product->productcomments->sum('rating'))/(count($product->productcomments))) )
+                                                                <i class="ion-android-star active"></i>
+
+                                                            @else
+
+                                                                <i class="ion-android-star"></i>
+
+                                                            @endif
+                                                        @endfor
+                                                @endif
+                                                </div>
+                                                
+                                                <p class="short-desc">{{$product->description}}.</p>
+                                            </div>
+
+                                            <div class="single-slider-product--list-view__content__actions">
+
+                                                <p class="product-price"><span class="discounted-price" style="font-size:20px;">{{number_format($product->price - (($product->discount * $product->price)/100))}} VNĐ</span><span class="main-price discounted" style="display:block;">{{number_format($product->price)}}</span></p>
+
+                                                <a href="./cart/add/{{$product->id}}" class="theme-button list-cart-button mb-10">Add to Cart</a>
+
+                                                <div class="hover-icons">
+                                                    <ul>
+                                                        <li><a data-toggle = "modal" data-target="#quick-view-modal-container" href="javascript:void(0)"><i class="icon-eye"></i></a></li>
+                                                        <li><a href="javascript:void(0)"><i class="icon-heart"></i></a></li>
+                                                        <li><a href="javascript:void(0)"><i class="icon-sliders"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
 
                                     </div>
+                                    
+                                    <!--=======  End of grid view product  =======-->
 
                                 </div>
-                                
-                                <!--=======  End of grid view product  =======-->
-
-                            </div>
+                            @endif
                         @endforeach
                         
                         

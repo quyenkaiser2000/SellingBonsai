@@ -17,8 +17,8 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                    <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Ký gửi</li>
                                 </ol>
                             </nav>
                         </div>
@@ -66,7 +66,7 @@
                                                             <td>{{$product->price}}</td>
                                                             <td>
                                                                     <button type="submit" class="btn btn-success"> <a href="browse/{{ $product->id }}" style="color:white;">Detail</a></button>
-                                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                                   
                                                             </td>
                                                         </tr>
                                                     

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+
 class ProductCategoryController extends Controller
 {
     /**
@@ -16,7 +18,7 @@ class ProductCategoryController extends Controller
      */
     public function index()
     {
-        $productCategorys = productCategory::all();
+        $productCategorys = productCategory::all()->where('status_delete','==','1');
         
         //dd($products);
         return view('dashboard.productcategory',compact('productCategorys'));
@@ -41,7 +43,10 @@ class ProductCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $validated = $request->validate([
+            'name' => 'required|unique:product_categories|max:255',
+        ]);
+
         if($request->hasFile('img'))
         {
             $destination_path = 'public/Linkimageproduct';
@@ -109,6 +114,17 @@ class ProductCategoryController extends Controller
     {
         
         $productCategory =  ProductCategory::find($id);
+
+        if($request->name != $productCategory->name){
+            $validated = $request->validate([
+                'name' => 'required|unique:product_categories|max:255',
+            ]);
+        }
+        else{
+            $validated = $request->validate([
+                'name' => 'required|max:255',
+            ]);
+        }
         //dd($request->name);
         //dd($productCategory);
         $productCategory->name = $request->input('name');
@@ -146,6 +162,13 @@ class ProductCategoryController extends Controller
        }
         $productCategory->img = null;
         $productCategory->save();
+        return redirect()->back();
+    }
+    public function delete($id){
+        $productCategory = ProductCategory::findOrFail($id);
+        $productCategory->status_delete = '0';
+        $productCategory->save();
+
         return redirect()->back();
     }
 }

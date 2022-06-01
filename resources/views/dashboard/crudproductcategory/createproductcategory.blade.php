@@ -17,8 +17,9 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                    <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="/admin/dashboard/ProductCategory">Loại sản phẩm</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Create</li>
                                 </ol>
                             </nav>
                         </div>
@@ -48,7 +49,7 @@
                                                 <div class="form-group row">
                                                     <label for="name" class="col-sm-3 col-md-4 text-right control-label col-form-label">Tên Loại sản phẩm</label>
                                                     <div class="col-sm-9 col-md-7">
-                                                        <input id="name" placeholder="Name Productcategory" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                                        <input id="name" placeholder="Tên loại sản phẩm" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                                             @error('name')
                                                                 <span class="invalid-feedback" role="alert">
@@ -62,7 +63,7 @@
                                                 <div class="form-group row">
                                                     <div class="form-group">
                                                         <label for="exampleFormControlFile1">Nhấn chọn hình 1</label>
-                                                        <input type="file" name="img" class="form-control-file" id="exampleFormControlFile1">
+                                                        <input type="file" name="img" class="form-control-file" id="exampleFormControlFile1" required>
                                                     </div>
                                                 </div>
                                             </div>

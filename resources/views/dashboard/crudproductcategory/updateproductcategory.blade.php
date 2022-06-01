@@ -17,8 +17,9 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="/admin/dashboard/ProductCategory">Loại sản phẩm</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Update</li>
                                 </ol>
                             </nav>
                         </div>
@@ -46,7 +47,13 @@
                                                 <div class="form-group row">
                                                     <label for="name" class="col-sm-3 text-right control-label col-form-label">Tên Loại sản phẩm </label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="name" name="name" placeholder="First Name Here" value="{{$productCategory->name}}">
+                                                        <input id="name" placeholder="Tên loại sản phẩm" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{$productCategory->name}}" required autocomplete="name" autofocus>
+
+                                                            @error('name')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
                                                     </div>
                                                 </div>
                                             </div>
@@ -93,7 +100,7 @@
                         
 
                     </div>
-                    
+                    </div>
                     
                 </div>
                 <!-- editor -->

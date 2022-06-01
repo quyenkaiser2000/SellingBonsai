@@ -29,10 +29,13 @@ class UpdateController extends Controller
         $upUser = User::findOrFail($user_id);
         
       
-      if($request->name != null && $request->email != null && $request->address != null && $request->phone != null )
+      if($request->name != null && $request->address != null && $request->phone != null )
         {
             $upUser->name = $request->name;
-            $upUser->email =  $request->email;
+            if(Auth::user()->email == null ){
+                $upUser->email =  $request->email;
+
+            }
             $upUser->address = $request->address;
             $upUser->phone = $request->phone;
             //dd( $upUser->address);

@@ -50,7 +50,7 @@
 
                                 <a href="#account-info" data-toggle="tab" class="active"><i class="fa fa-user"></i>Change Password</a>
 
-                                <a href="login-register.html"><i class="fa fa-sign-out"></i> Logout</a>
+                                
                             </div>
                         </div>
                         <!-- My Account Tab Menu End -->
@@ -63,9 +63,7 @@
                                     <div class="myaccount-content">
                                         <h3>Dashboard</h3>
 
-                                        <div class="welcome mb-20">
-                                            <p>Hello, <strong>Alex Tuntuni</strong> (If Not <strong>Tuntuni !</strong><a href="login-register.html" class="logout"> Logout</a>)</p>
-                                        </div>
+                                       
 
                                         <p class="mb-0">From your account dashboard. you can easily check &amp; view your
                                             recent orders, manage your shipping and billing addresses and edit your
@@ -261,36 +259,8 @@
                                         <div class="account-details-form">
                                             <form action="{{'user/myaccount/changepas'}}" enctype="multipart/form-data" method="post">
                                             @csrf
-                                                <div class="form-group row">
-                                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">Họ Tên</label>
-                                                    <div class="col-sm-9">
-                                                            <input type="text" class="form-control" id="name" name="name" placeholder="" value="{{$user->name}}">
-                                                        
-                                                            @error('name')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                            
-
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label for="email" class="col-sm-3 text-right control-label col-form-label">Email</label>
-                                                    <div class="col-sm-9">
-                                                        <input id="email"  type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="" required   autocomplete="email" autofocus>
-
-                                                            
-                                                        @if(session()->has('erroremail'))
-                                                            <div class="alert alert-danger">
-                                                                {{ session()->get('erroremail') }}
-                                                            </div>
-                                                        @endif
-                                                    </div>
-                                                </div>
                                                         
 
-                                                <div class="col-12 mb-30"><h4>Password change</h4></div>
                                                     <div class="form-group row">
                                                         <label for="Current" class="col-sm-3 text-right control-label col-form-label">Current Password</label>
                                                     <div class="col-sm-9">

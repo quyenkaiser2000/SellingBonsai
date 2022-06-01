@@ -17,8 +17,9 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                    <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="/admin/dashboard/discount">Giảm giá</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Create</li>
                                 </ol>
                             </nav>
                         </div>
@@ -45,29 +46,49 @@
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-3 text-right control-label col-form-label">Tên mã giảm</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="" required>
+                                                <input id="name" placeholder="Tên mã giảm"  type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="" required autocomplete="name" autofocus>
+
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="description" class="col-sm-3 text-right control-label col-form-label">Chi tiết</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="description" name="description" placeholder="Description" value="" required>
+                                                <input id="description" placeholder="Chi tiết"  type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="" required autocomplete="description" autofocus>
+
+                                                @error('description')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="discount" class="col-sm-3 text-right control-label col-form-label">Giảm giá</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="discount" name="discount" placeholder="Discount" value="" required>
+                                                <input id="discount" placeholder="Giảm giá"  type="text" class="form-control @error('discount') is-invalid @enderror" name="discount" value="" required autocomplete="discount" autofocus>
+
+                                                @error('discount')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                                
                                             </div>
                                         </div><div class="form-group row">
                                             <label for="discount" class="col-sm-3 text-right control-label col-form-label">Code Discount</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="code" name="code" placeholder="Code" value="" required>
-                                                @if(session()->has('errorcode'))
-                                                    <div class="alert alert-primary">
-                                                        {{ session()->get('errorcode') }}
-                                                    </div>
-                                                @endif
+                                                <input id="code" placeholder="Code"  type="text" class="form-control @error('discount') is-invalid @enderror" name="code" value="" required autocomplete="code" autofocus>
+
+                                                @error('code')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">

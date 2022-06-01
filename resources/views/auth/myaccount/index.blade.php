@@ -50,7 +50,7 @@
 
                                 <a href="user/myaccount/changepas" ><i class="fa fa-user"></i>Change Password</a>
 
-                                <a href="login-register.html"><i class="fa fa-sign-out"></i> Logout</a>
+                               
                             </div>
                         </div>
                         <!-- My Account Tab Menu End -->

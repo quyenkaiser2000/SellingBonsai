@@ -45,37 +45,28 @@
                                     
                                     <!-- Billing Address -->
                                     <div id="billing-form" class="mb-40">
-                                        <h4 class="checkout-title">Billing Address</h4>
+                                        <h4 class="checkout-title">Thông tin thanh toán</h4>
         
                                         <div class="row">
         
                                             <div class=" col-12 mb-20">
-                                                <label>First Name*</label>
+                                                <label>Họ Tên*</label>
                                                 <input type="text" placeholder="Name" name="name" required>
                                             </div>
         
                                             <div class="col-md-6 col-12 mb-20">
-                                                <label>Email Address*</label>
-                                                <input type="email" placeholder="Email Address" name="email" required>
+                                                <label>Địa Chỉ Email*( Email đăng ký tài khoản)</label>
+                                                <input type="email" placeholder="Email Address" name="email" value="{{Auth::user()->email}}" required>
                                             </div>
         
                                             <div class="col-md-6 col-12 mb-20">
-                                                <label>Phone no*</label>
+                                                <label>Số Điện Thoại*</label>
                                                 <input type="text" placeholder="Phone number" name="phone" required>
                                             </div>
         
                                             <div class="col-12 mb-20">
-                                                <label>Address*</label>
+                                                <label>Địa Chỉ*</label>
                                                 <input type="text" placeholder="Address" name="address" required>
-                                            </div>
-        
-                                            
-                                            <div class="col-12 mb-20">
-                                                <div class="check-box">
-                                                    <input type="checkbox" id="create_account">
-                                                    <label for="create_account">Create an Acount?</label>
-                                                </div>
-                                            
                                             </div>
         
                                         </div>
@@ -93,11 +84,11 @@
                                         <!-- Cart Total -->
                                         <div class="col-12 mb-60">
                                         
-                                            <h4 class="checkout-title">Cart Total</h4>
+                                            <h4 class="checkout-title">Tổng Giỏ Hàng</h4>
                                     
                                             <div class="checkout-cart-total">
         
-                                                <h4>Product <span>Total</span></h4>
+                                                <h4>Sản Phẩm <span>Tổng</span></h4>
                                                 
                                                 <ul>
                                                     @foreach($carts as $cart)
@@ -106,11 +97,11 @@
                                                     @endforeach
                                                 </ul>
                                                 
-                                                <p>Sub Total <span>{{number_format($subtotal)}} VNĐ</span></p>
-                                                <p>Shipping Fee <span>00.00 VNĐ</span></p>
-                                                <p>Discount Code <span>{{number_format($discountcode)}} VNĐ</span></p>
+                                                <p>Tổng phụ <span>{{number_format($subtotal)}} VNĐ</span></p>
+                                                <p>Phí vận chuyển <span>00.00 VNĐ</span></p>
+                                                <p>Mã giảm giá <span>{{number_format($discountcode)}} VNĐ</span></p>
                                                 
-                                                <h4>Grand Total <span>{{number_format($total)}} VNĐ</span></h4>
+                                                <h4>Tổng cộng <span>{{number_format($total)}} VNĐ</span></h4>
                                                 
                                             </div>
                                             
@@ -139,7 +130,7 @@
                                                 
                                                 <div class="single-method">
                                                     <input type="checkbox" id="accept_terms" checked>
-                                                    <label for="accept_terms">I’ve read and accept the terms & conditions</label>
+                                                    <label for="accept_terms">Tôi đã đọc và chấp nhận các điều khoản & điều kiện</label>
                                                 </div>
                                                 
                                             </div>

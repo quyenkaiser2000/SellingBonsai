@@ -14834,3 +14834,234 @@ File: scss
   .do-block {
     display: block !important; } }
 
+
+
+
+    .contai{
+      padding:0px 30px;
+    }
+    .chiso{
+      display: flex;
+      justify-content:space-between;
+      margin-top: 20px;
+  }
+  .chiso >div{
+      width: 260px;
+      height: 120px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 10px;
+  
+  }
+  .chiso .number{
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 45px;
+      color: #535261; 
+      margin-top: 12px;
+      display: block;
+    text-align: center;
+  
+  }
+  .chiso .dacap .number-phantram{
+      float: right;
+      margin-top: 15px;
+      font-weight: 400;
+      font-size: 8px;
+      line-height: 12px;
+      color: #FF9138;
+      padding: 5px 10px;
+      border-radius: 14px;
+      background: rgb(255,149,1,0.15);
+      margin-right: 7px;
+  }
+  .chiso .dangcho .number-phantram{
+      float: right;
+      margin-top: 15px;
+      font-weight: 400;
+      font-size: 8px;
+      line-height: 12px;
+      color: #FF9138;
+      padding: 5px 10px;
+      border-radius: 14px;
+      background: rgb(255,149,1,0.15);
+      margin-right: 7px;
+  }
+  .chiso .dasudung .number-phantram{
+      float: right;
+      margin-top: 15px;
+      font-weight: 400;
+      font-size: 8px;
+      line-height: 12px;
+      color: #E73F3F;
+      padding: 5px 10px;
+      border-radius: 14px;
+      background: rgb(231,63,63,0.15);
+      margin-right: 7px;
+  }
+  .chiso .boqua .number-phantram{
+      float: right;
+      margin-top: 15px;
+      font-weight: 400;
+      font-size: 8px;
+      line-height: 12px;
+      color: #E73F3F;
+      padding: 5px 10px;
+      border-radius: 14px;
+      background: rgb(231,63,63,0.15);
+      margin-right: 7px;
+  }
+  .chiso div .content{
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 18px;
+      color: #535261;
+      width: auto;
+      display: inline-block;
+  }
+  
+  .chiso .dacap i.icon{
+      color:#6493F9;
+      border: 1px solid #DADADA;  
+      background: #6695fb40;
+      font-size: 24px;
+      margin-right: 12px;
+      padding: 12px 12px;
+      border-radius: 50%;
+  }
+  .chiso .dasudung i.icon{
+      color:#35C75A;
+      border: 1px solid #DADADA;  
+      background: #35c75a3d;
+      font-size: 24px;
+      margin-right: 12px;
+      padding: 12px 12px;
+      border-radius: 50%;
+  }
+  .chiso .dangcho i.icon{
+      color:#FFAC6A;
+      border: 1px solid #DADADA;  
+      background: #ffac6a45;
+      font-size: 24px;
+      margin-right: 12px;
+      padding: 12px 12px;
+      border-radius: 50%;
+  }
+  .chiso .boqua i.icon{
+      color:#F86D6D;
+      border: 1px solid #DADADA;  
+      background: #f86d6d38;
+      font-size: 24px;
+      margin-right: 12px;
+      padding: 12px 12px;
+      border-radius: 50%;
+  }
+  .chart-area .title h4{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    color: #282739;
+}
+.chart-area .title span{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #a9a9B0;
+}
+.chart-area .title{
+    margin-top:24px;
+    display:flex;
+    justify-content:space-between;
+    margin-left: 24px;
+    margin-right: 24px;
+
+    
+}
+.chart-area{
+    margin-top:16px;
+    display:grid;
+    background:#fff;
+    border-radius:12px;
+}
+.calendar-chart .calendar {
+  max-width: 100%;
+  background-color: #fff;
+  border-radius: 4px;
+  margin: auto;
+  box-shadow: 2px 2px 15px rgba(70, 64, 67, 0.1);
+  border-radius: 12px;
+}
+
+.calendar-chart .calendar h1 {
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.calendar-chart .info {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.calendar-chart .info p {
+  font-size: 1.calendar-chart .5rem;
+  font-weight: 600;
+}
+
+.calendar-chart .date {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 28px;
+}
+
+.calendar-chart .day,
+.calendar-chart .day-name {
+  width: 52px;
+  height: 34px;
+  font-size: 1.calendar-chart .5rem;
+  text-align: center;
+  margin-top: -5px;
+  padding-top: 5px;
+}
+
+.calendar-chart .btn {
+  display: inline-block;
+  padding: 1rem;
+  font-size: 1.calendar-chart .5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.calendar-chart .5s ease-in;
+}
+
+.calendar-chart .btn {
+ 
+}
+
+.calendar-chart .btn {
+  color: #FF7506;
+}
+
+.calendar-chart .btn:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.calendar-chart .btn-next {
+  margin-left: 1rem;
+}
+
+.calendar-chart .btn-prev {
+  margin-right: 1rem;
+}
+
+.calendar-chart .day.active {
+  color: #fff;
+  background: #FF7506;
+  border-radius: 8px;
+}
+.day-ok-chart{
+  color:#FF9138;
+}

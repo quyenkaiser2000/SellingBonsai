@@ -24,7 +24,9 @@ class ProductsTableSeeder extends Seeder
             'qty' => 20,
             'discount' =>19,
             'tag' => 'Clothing',
-            'status' =>'1'
+            'status' =>'1',
+            'status_delete' => '1',
+
 
         ]);
         Product::create([
@@ -38,7 +40,9 @@ class ProductsTableSeeder extends Seeder
             'qty' => 15,
             'discount' =>12,
             'tag' => 'Clothing',   
-            'status' =>'1'
+            'status' =>'1',
+            'status_delete' => '1',
+
 
         ]);
         Product::create([
@@ -52,7 +56,9 @@ class ProductsTableSeeder extends Seeder
             'qty' => 15,
             'discount' =>22,
             'tag' => 'Clothing',   
-            'status' =>'1'
+            'status' =>'1',
+            'status_delete' => '1',
+
 
         ]);
         Product::create([
@@ -66,7 +72,9 @@ class ProductsTableSeeder extends Seeder
             'qty' => 15,
             'discount' =>15,
             'tag' => 'Clothing',  
-            'status' =>'1'
+            'status' =>'1',
+            'status_delete' => '1',
+
 
         ]);
         Product::create([
@@ -80,7 +88,9 @@ class ProductsTableSeeder extends Seeder
             'qty' => 20,
             'discount' =>13,
             'tag' => 'Clothing',
-            'status' =>'1'
+            'status' =>'1',
+            'status_delete' => '1',
+
 
         ]);
         Product::create([
@@ -94,7 +104,9 @@ class ProductsTableSeeder extends Seeder
             'qty' => 15,
             'discount' =>12,
             'tag' => 'Clothing',  
-            'status' =>'1'
+            'status' =>'1',
+            'status_delete' => '1',
+
 
         ]);
         Product::create([
@@ -108,7 +120,9 @@ class ProductsTableSeeder extends Seeder
             'qty' => 15,
             'discount' =>12,
             'tag' => 'Clothing',  
-            'status' =>'1'
+            'status' =>'1',
+            'status_delete' => '1',
+
 
         ]);
         Product::create([
@@ -122,7 +136,9 @@ class ProductsTableSeeder extends Seeder
             'qty' => 15,
             'discount' =>15,
             'tag' => 'Clothing',  
-            'status' =>'1'
+            'status' =>'1',
+            'status_delete' => '1',
+
         ]);
     }
 }

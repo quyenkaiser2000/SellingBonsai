@@ -16,24 +16,32 @@ class ProductCategoriesTableSeeder extends Seeder
         ProductCategory::create([
             'id' =>1,
             'name' => 'Các loại hoa',
-            'img' => 'hoa.jpg'
+            'img' => 'hoa.jpg',
+            'status_delete' => '1',
+
         ]);
         ProductCategory::create([
             'id' =>2,
             'name' => 'Bonsai',
-            'img' => 'bonsai.jpg'
+            'img' => 'bonsai.jpg',
+            'status_delete' => '1',
+
 
         ]);
         ProductCategory::create([
             'id' =>3,
             'name' => 'Cây lâu năm',
-            'img' => 'caylaunam.jpg'
+            'img' => 'caylaunam.jpg',
+            'status_delete' => '1',
+
 
         ]);
         ProductCategory::create([
             'id' =>4,
             'name' => 'Cây trong nhà',
-            'img' => 'caytrongnha.jpg'
+            'img' => 'caytrongnha.jpg',
+            'status_delete' => '1',
+
 
         ]);
         
