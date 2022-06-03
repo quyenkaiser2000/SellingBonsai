@@ -97,10 +97,10 @@
                         <div class="single-split-banner">
                             <div class="single-split-banner__image">
                                 <a href="{{'shop/Product/'.$product->id}}">
-                                    <img src="{{asset('/storage/Linkimageproduct/'.$product->ProductImage[0]->img)}}" class="img-fluid" alt="" style="width: 100%;height:300px">
+                                    <img src="{{asset('/storage/Linkimageproduct/'.$product->ProductImage[0]->img)}}" class="img-fluid" alt="" style="width: 100%;height:600px">
                                     <div class="single-split-banner__image__content">
                                         <p class="split-banner-title split-banner-title--light" style="color:red">New</p>
-                                        <p class="split-banner-title split-banner-title--bold" style="color:white">{{$product->name}}</p>
+                                        <p class="split-banner-title split-banner-title--bold" style="color: #333333ed;">{{$product->name}}</p>
                                         <p class="split-banner-title split-banner-title--price">from <span class="amount">{{number_format($product->price)}} VNĐ</span></p>
                                     </div>
                                 </a>
@@ -485,7 +485,7 @@
             <!--=======  section title  =======-->
                     
             <div class="section-title mb-20">
-                <h2>Featured Categories</h2>
+                <h2>LOẠI SẢN PHẨM ĐẶC TRƯNG</h2>
             </div>
             
             <!--=======  End of section title  =======-->

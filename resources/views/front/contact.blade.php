@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Your Message</label>
-                                    <textarea name="message" id="contactMessage" ></textarea>
+                                    <textarea name="message" id="contactMessage" required></textarea>
                                 </div>
                                 <div class="form-group mb-0">
                                     <button type="submit"  id="submit" class="theme-button contact-button" >Send</button>

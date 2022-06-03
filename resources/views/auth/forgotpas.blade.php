@@ -5,7 +5,7 @@
     <base href="{{ asset('/') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Alula</title>
+    <title>Change Password Alula</title>
     <link rel="stylesheet" href="au/fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Font Icon -->
@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="signin-form">
-                        <h2 class="form-title">Send Email</h2>
+                        <h2 class="form-title" style="font-size:30px;">Change Password</h2>
                         <form method="POST" class="register-form" id="login-form" action="reset-password/{{$token}}">
 
 

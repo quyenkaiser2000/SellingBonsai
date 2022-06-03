@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Alula</title>
+    <title>Send Email Alula</title>
     <link rel="stylesheet" href="au/fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Font Icon -->

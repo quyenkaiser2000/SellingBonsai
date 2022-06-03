@@ -343,14 +343,14 @@
                                         {{$productcomments->links()}}
                                     </div>
                                     <div class="ratting-form-wrapper fix">
-                                        <h3>Add your Comments</h3>
+                                        <h3 style="text-transform: none !important; ">Thêm ý kiến của bạn</h3>
                                         <form action="" method="post">
                                             @csrf
                                             <input type="hidden" name="product_id" value="{{$productids->id}}">
                                             <input type="hidden" name="user_id" value="{{Auth::user()->id ?? null}}">
                                             <div class="ratting-form row">
                                                 <div class="col-12 mb-15">
-                                                    <h5>Rating:</h5>
+                                                    <h5>Đánh giá:</h5>
                                                     <section id="rate_comment" class="rating_comment">
                                                         <input type="radio" id="star_5" name="rating" value="5" />
                                                         <label for="star_5" title="Five">&#9733;</label>
@@ -417,7 +417,7 @@
                     <!--=======  section title  =======-->
                     
                     <div class="section-title mb-20">
-                        <h2>Related Products</h2>
+                        <h2>Sản phẩm liên quan</h2>
                     </div>
                     
                     <!--=======  End of section title  =======-->

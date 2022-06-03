@@ -8,6 +8,9 @@ use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
 use App\Http\Controllers\orderController;
 use BotMan\BotMan\Messages\Conversations\Conversation;
+use BotMan\BotMan\Messages\Outgoing\Actions\Button;
+use BotMan\BotMan\Messages\Outgoing\Question;
+
 class BotManController extends Controller
 {
     /**
@@ -19,7 +22,7 @@ class BotManController extends Controller
         $botman = app('botman');
         
         $botman->hears('Mua hàng', function ($bot){
-            $bot->startConversation(new orderController);
+            $bot->startConversation(new orderController());
         });
         
        
@@ -29,10 +32,10 @@ class BotManController extends Controller
         $botman->hears('Thông tin cửa hàng', function (BotMan $bot) {
             $bot->reply("111 Thủ Đức, Tp.HCM - SĐT: 000xxx123");
         });
-        $botman->hears('Hi', function (BotMan $bot) {
-            $bot->reply("Xin chào bạn! Bạn cần gì hãy gõ từ khóa!");
+        $botman->hears('Thanh toán', function (BotMan $bot) {
+            $bot->reply("Thanh toán sau khi nhận hàng!");
+            $bot->reply("Tích hợp thanh toán VNPay");
         });
-        
         $botman->listen();
 
     }

@@ -139,7 +139,7 @@
                                             <div class="form-group row">
                                                 <div class="form-group">
                                                     <label for="exampleFormControlFile1">Nhấn chọn hình 1</label>
-                                                    <input type="file" name="img" class="form-control-file" id="exampleFormControlFile1">
+                                                    <input type="file" name="img" class="form-control-file" id="exampleFormControlFile1" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleFormControlFile1">Nhấn chọn hình 2</label>
@@ -213,7 +213,6 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

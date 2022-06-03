@@ -136,7 +136,7 @@
                                                     <div class="form-group col-md-4">
                                                         <div class="form-group">
                                                                     <img  for="exampleFormControlFile1"  src="{{asset('/storage/Linkimageproduct/addimg.png')}}" class="img-fluid" alt="" style="width: 200px;height:200px">
-                                                                    <input type="file" name="img" class="form-control-file" id="exampleFormControlFile1">
+                                                                    <input type="file" name="img" class="form-control-file" id="exampleFormControlFile1" required>
 
 
                                                                     <input style="opacity:0;height: 0px; width: 0px; position: absolute; top: 20%; left: 15%;" type="text" class="form-control "  name="id-productimg" placeholder="First Name Here" value="{{$product2s0->id}}">
@@ -364,7 +364,6 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
