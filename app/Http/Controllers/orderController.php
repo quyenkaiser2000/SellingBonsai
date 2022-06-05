@@ -44,7 +44,7 @@ class orderController extends Conversation
             }
             if($answer->getvalue() == 'Chậu cảnh')
             {
-                $this->say('Truy cập link sau đến với giang hàng của shop: <a href="http://127.0.0.1:8000/shop/Category/Chậu%20cảnh" target="_blank">Chậu cảnh/a>');
+                $this->say('Truy cập link sau đến với giang hàng của shop: <a href="http://127.0.0.1:8000/shop/Category/Chậu%20cảnh" target="_blank">Chậu cảnh</a>');
             }
         });
     }
