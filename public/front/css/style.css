@@ -11517,3 +11517,26 @@ h3.comment-counter
   }
 
 
+  @media only screen and (max-width: 1200px)
+  {
+    .single-split-banner__image a img
+      {
+          height: 500px !important;
+      }
+  }
+  @media only screen and (max-width: 992px)
+  {
+    .single-split-banner__image a img
+      {
+          height: 400px !important;
+      }
+      .single-slider-product__image > a img{
+          height: 180px !important;
+      }
+  }
+  @media only screen and (max-width: 768px)
+  {
+      .single-slider-product__image > a img{
+          height: 250px !important;
+      }
+  }
