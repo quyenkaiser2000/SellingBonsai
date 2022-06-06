@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="signin-form">
-                        <h2 class="form-title">Sign up</h2>
+                        <h2 class="form-title">Sign In</h2>
                         <form method="POST" class="register-form" id="login-form" action="{{ route('login') }}">
 
 
